@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Catpus</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+  <h1>Catpus</h1>
+  <% if logged_in? %>
+    <div> <%= current_user.username %> </div>
+    <div> <%= button_to "Sign Out", session_url, method: :delete %> </div>
+  <% else %>
+    <%= link_to "Sign In", new_session_url %>
+    <%= link_to "Create User", new_user_url %>
+  <% end %>
+  </header>
+<%= yield %>
+
+</body>
+</html>
