@@ -23,4 +23,4 @@ I will implement user authentication with Github and site level auth. By the end
 
 [Details][phase-one]
 
-[phase-one]: ./docs/phases/phase1.md
+[phase-one]: ./docs/phase1.md
