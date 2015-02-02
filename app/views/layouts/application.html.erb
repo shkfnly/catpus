@@ -10,10 +10,10 @@
   <header>
   <h1>Catpus</h1>
   <% if logged_in? %>
-    <div> <%= current_user.username %> </div>
-    <div> <%= button_to "Sign Out", session_url, method: :delete %> </div>
+    <div> <%= current_user.name %> </div>
+    <div> <%= button_to "Sign Out", sessions_url, method: :delete %> </div>
   <% else %>
-    <%= link_to "Sign In", new_session_url %>
+    <%= link_to "Sign In", new_sessions_url %>
     <%= link_to "Create User", new_user_url %>
   <% end %>
   </header>

@@ -1,19 +1,27 @@
 class User < ActiveRecord::Base
-  validates :username, :email, :password_digest, :session_token, presence: true
-  validates :username, :email, uniqueness: true
+  # validates :username, :email, :password_digest, :session_token, presence: true
+  validates :name, :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
   attr_reader :password
 
   after_initialize :ensure_session_token
 
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["name"]
+    end
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def self.find_by_credentials(username, password)
-    user =  User.find_by(username: username)
+  def self.find_by_credentials(name, password)
+    user =  User.find_by(name: name)
     return nil unless user && user.is_password?(password)
     user
   end

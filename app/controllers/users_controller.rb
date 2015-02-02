@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    params[:user][:username]= params[:user][:username].downcase
+    params[:user][:name]= params[:user][:name].downcase
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Successfully Created User"
@@ -44,6 +44,6 @@ class UsersController < ApplicationController
   
   private
     def user_params
-      params.require(:user).permit(:username, :email, :password)
+      params.require(:user).permit(:name, :email, :password)
     end
 end

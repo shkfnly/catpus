@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :users, except: [:index]
-  resource :session, only: [:new, :create, :destroy]
+  resource :sessions, only: [:new, :create, :destroy]
   resources :pages, only: [:index, :about]
+
+  get "/auth/:provider/callback" => "sessions#create"
+  get "/signout" => "sessions#destroy", :as => :signout
   root 'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
