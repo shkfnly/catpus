@@ -2,12 +2,12 @@
 
 <%= render "layouts/errors" %>
 <%= link_to "Sign in with Github", "/auth/github/" %>
-<form action='<%= sessions_url %>' method='POST'>
-  <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+<!-- <form action='<%#= sessions_url %>' method='POST'>
+  <input type='hidden' name='authenticity_token' value='<%#= form_authenticity_token %>'>
   <label for="username">Username:</label>
   <input type='text' name='user[name]' id='username'>
   <label for='password'>Password:</label>
   <input type='password' name='user[password]' id='password'>
   <input type='submit' value='Log In'>
-</form>
+</form> -->
 

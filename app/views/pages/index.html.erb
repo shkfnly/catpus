@@ -1,5 +1,3 @@
-<header>
-</header>
 
 <h1>Catpus is a Visual Repository Management Tool</h1>
 
@@ -12,9 +10,12 @@
 </section>
 
 <section class='homepage-section'>
-  Create organizations to work on m
+  Create organizations to work on large projects.
 </section>
 
+<% unless current_user %>
+  <%= link_to "Sign in with Github", "/auth/github/" %>
+<% end %>
 <footer>
   <nav>
   <%= link_to "Homepage", root_url %>
