@@ -25,4 +25,4 @@ I will implement user authentication with Github and site level auth. By the end
 
 [phase-one]: ./docs/phase1.md
 
-[heroku]: 'http://catpus.herokuapp.com/'
+[heroku](http://catpus.herokuapp.com/)
