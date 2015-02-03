@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :require_login
   def show
     @user = User.find(params[:id])
   end
@@ -8,18 +8,18 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-  def create
-    params[:user][:name]= params[:user][:name].downcase
-    @user = User.new(user_params)
-    if @user.save
-      flash[:notice] = "Successfully Created User"
-      log_in!(@user)
-      redirect_to user_url(@user)
-    else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
-    end
-  end
+  # def create
+  #   params[:user][:name]= params[:user][:name].downcase
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     flash[:notice] = "Successfully Created User"
+  #     log_in!(@user)
+  #     redirect_to user_url(@user)
+  #   else
+  #     flash.now[:errors] = @user.errors.full_messages
+  #     render :new
+  #   end
+  # end
 
   def edit
     @user = User.find(current_user.id)
