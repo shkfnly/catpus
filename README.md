@@ -8,12 +8,12 @@ Catpus is a clone of Trello, but incorporating Github integration with some basi
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [x] Log in with Github
-- [x] Link Github Repositories
-- [x] Have a profile page with details pictures
-- [x] Create organizations
-- [x] See current contributers to repository
-- [x] Assign members to tasks
-- [x] Visualize repository data
+- [] Link Github Repositories
+- [] Have a profile page with details pictures
+- [] Create organizations
+- [] See current contributers to repository
+- [] Assign members to tasks
+- [] Visualize repository data
 
 ##Design Docs
 
