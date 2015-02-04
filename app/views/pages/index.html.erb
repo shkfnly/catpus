@@ -1,5 +1,5 @@
 
-<div class="setting">
+<div id="setting">
 
   <div id="main">
     <h1>Catpus is a Visual Repository Management Tool</h1>
@@ -13,13 +13,18 @@
       <%= link_to "Sign in with Github", "/auth/github/" %>
     <% end %>  
   </div>
-  
-  <div id="footer">
-    <footer>
-      <nav>
-      <%= link_to "Homepage", root_url %>
-      <%#= link_to "About", about_page_url %>
-      </nav>
-    </footer>
-  </div>
 </div>
+<div id="footer">
+  <footer>
+    <nav>
+    <%= link_to "Homepage", root_url %>
+    <%#= link_to "About", about_page_url %>
+    </nav>
+  </footer>
+</div>
+
+<%#= javascript_tag do %>
+  <!-- $(function(){
+    CatpusApp.start();
+  });
+ --><%# end %>

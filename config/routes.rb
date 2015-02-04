@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :users, except: [:index]
-  resources :sessions, only: [:new, :create, :destroy]
+  resource :sessions, only: [:new, :create, :destroy]
   resources :pages, only: [:index, :about]
 
   namespace :api,
    defaults: { format: :json } do
-    resources :boards, except: [:edit, :update]
+    resources :repos, except: [:edit, :update]
     resources :lists, only: [:create, :update, :destroy]
     resources :issue, only: [:create, :update, :destroy, :show]
   end

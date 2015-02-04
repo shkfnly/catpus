@@ -1,4 +1,5 @@
 class Api::IssuesController < ApplicationController
+  before_action :require_contributer!
 
   def create
     @issue = current_list.issues.new(issue_params)
@@ -40,7 +41,7 @@ class Api::IssuesController < ApplicationController
         @issue = Issue.find(params[:id])
         @list = @issue.list
       elsif params[:issue]
-        @list = List.find(params[:list][:board_id])
+        @list = List.find(params[:issue][:list_id])
       end
     end
 end
