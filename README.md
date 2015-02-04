@@ -23,4 +23,6 @@ I will implement user authentication with Github and site level auth. By the end
 
 [Details][phase-one]
 
+###Phase 2: Finish GitHub Integration and Backbone Scaffolding with Composite Views (~1.5 days)
+Users will be able to see their current issues, allowing see them across repositories. Users will submit commits that will check off the commit. This will require the creation of a webhook to implement this functionality.
 [phase-one]: ./docs/phase1.md
