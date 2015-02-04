@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   resources :users, except: [:index]
-  resource :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
   resources :pages, only: [:index, :about]
+
+  namespace :api do
+    resources :boards, except: [:edit, :update]
+    resources :lists, only: [:create, :update, :destroy]
+    resources :issue, only: [:create, :update, :destroy, :show]
+  end
 
   get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
