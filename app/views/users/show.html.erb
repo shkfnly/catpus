@@ -1,7 +1,6 @@
-<img src="<%= @user.image_url %>" style='width: 200px; height: 200px'/>
-<h2><%= @user.name %></h2>
+<img src="<%= current_client_user.avatar_url %>" style='width: 200px; height: 200px'/>
+<h2><%= current_client_user.name %></h2>
 <h3>Organization</h3>
-  
 <% current_client.organizations.each do |organization| %>
   <% name = organization.login %>
   <p><%= name %></p>

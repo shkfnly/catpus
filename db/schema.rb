@@ -11,27 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203203505) do
+ActiveRecord::Schema.define(version: 20150203235806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "boards", force: :cascade do |t|
+    t.string   "title",          null: false
+    t.integer  "user_id",        null: false
+    t.string   "repository_url", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "session_token",                          null: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "provider",            default: "github"
-    t.string   "uid",                                    null: false
+    t.string   "session_token",                    null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "provider",      default: "github"
+    t.string   "uid",                              null: false
     t.string   "name"
-    t.string   "email",                                  null: false
-    t.string   "username",                               null: false
-    t.string   "image_url"
-    t.string   "github_url"
-    t.string   "repos_url"
-    t.string   "subscriptions_url"
-    t.string   "organizations"
-    t.string   "received_events_url"
-    t.string   "token",                                  null: false
+    t.string   "email",                            null: false
+    t.string   "username",                         null: false
+    t.string   "token",                            null: false
   end
 
 end

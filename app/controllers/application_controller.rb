@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?, :current_client
+  helper_method :current_user, :logged_in?, :current_client, :current_client_user
 
   def current_user
     return nil if session[:session_token].nil?
@@ -10,7 +10,12 @@ class ApplicationController < ActionController::Base
   end
   
   def current_client
-    return Octokit::Client.new(:access_token => current_user.token) if current_user
+    return nil unless current_user
+    curr_client ||= Octokit::Client.new(:access_token => current_user.token)
+  end
+
+  def current_client_user
+    user ||= current_client.user unless current_client.nil?
   end
 
   def log_in!(user)
