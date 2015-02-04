@@ -1,1 +1,1 @@
-CatpusApp.RootView = Marionette.LayoutView.extend({el: '.body'})
+// CatpusApp.RootView = Marionette.LayoutView.extend({el: '.body'})
