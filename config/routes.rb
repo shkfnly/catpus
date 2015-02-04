@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :pages, only: [:index, :about]
 
-  namespace :api, defaults: { format: :json } do
+  namespace :api,
+   defaults: { format: :json } do
     resources :boards, except: [:edit, :update]
     resources :lists, only: [:create, :update, :destroy]
     resources :issue, only: [:create, :update, :destroy, :show]
