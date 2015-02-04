@@ -2,14 +2,17 @@ source 'https://rubygems.org'
 
 ruby '2.1.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
 gem 'rails', '4.2.0'
 # Github authorization
 gem "omniauth-github", '1.1.1'
-
+gem "backbone-on-rails"
 # Github API Helper
 gem "octokit", "~> 3.0"
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -18,12 +21,15 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'marionette-rails'
 
 # Use Postgres
 
 gem 'pg'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Use jquery UI
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -49,6 +55,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem 'annotate'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

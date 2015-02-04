@@ -1,24 +1,25 @@
 
-<h1>Catpus is a Visual Repository Management Tool</h1>
+<div class="setting">
 
-<section class='homepage-section'>
-  Organize your repository workflow by creating tasks and timelines. for Allowing assignment of relevant members.
-</section>
+  <div id="main">
+    <h1>Catpus is a Visual Repository Management Tool</h1>
+    <section class='homepage-section'>
+      Organize your repository workflow by creating tasks and timelines. for Allowing assignment of relevant members.
+      Colloborate with contributers and see who is currently working on the directory.
+      Create organizations to work on large projects.
+    </section>
 
-<section class='homepage-section'>
-  Colloborate with contributers and see who is currently working on the directory.
-</section>
-
-<section class='homepage-section'>
-  Create organizations to work on large projects.
-</section>
-
-<% unless current_user %>
-  <%= link_to "Sign in with Github", "/auth/github/" %>
-<% end %>
-<footer>
-  <nav>
-  <%= link_to "Homepage", root_url %>
-  <%#= link_to "About", about_page_url %>
-  </nav>
-</footer>
+    <% unless current_user %>
+      <%= link_to "Sign in with Github", "/auth/github/" %>
+    <% end %>  
+  </div>
+  
+  <div id="footer">
+    <footer>
+      <nav>
+      <%= link_to "Homepage", root_url %>
+      <%#= link_to "About", about_page_url %>
+      </nav>
+    </footer>
+  </div>
+</div>

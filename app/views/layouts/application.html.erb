@@ -7,17 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-  <h1><%= link_to "Catpus", root_url %></h1>
-  <% if logged_in? %>
-    <div> <%= current_user.name %> </div>
-    <div> <%= link_to "Repositories", user_url(current_user) %> </div>
-    <div> <%= button_to "Sign Out", sessions_url, method: :delete %> </div>
-  <% else %>
-    <%= link_to "Sign in with Github", "/auth/github/" %>
-  <% end %>
-  </header>
-<%= yield %>
-
+  <%= render partial: "layouts/header" %>
+  <%= yield %>
 </body>
 </html>
