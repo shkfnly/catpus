@@ -9,7 +9,7 @@ window.Catpus = {
 };
 
 $(document).ready(function(){
-  // Catpus.initialize();
+  Catpus.initialize();
   window.CatpusApp = function(Backbone, Marionette){
   App = new Marionette.Application();
   App.addRegions({headerRegion: "#header",

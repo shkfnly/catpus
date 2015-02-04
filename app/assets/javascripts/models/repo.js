@@ -1,0 +1,1 @@
+Catpus.Models.Repo = Backbone.Model.extend
