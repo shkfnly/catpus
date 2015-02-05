@@ -5,7 +5,7 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
   },
 
   routes: {
-    '#' : 'Dashboard',
+    '#' : 'rootHandler',
     'users/:id': 'Dashboard',
   },
 
@@ -23,6 +23,9 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
     }.bind(this)}) 
   },  
 
+  rootHandler: function(){
+    Backbone.history.navigate('users/' + this.model.id, {trigger: true})
+  },
   _swapView: function(view){
     this._currentView && this._currentView.remove();
     this._currentView = view
