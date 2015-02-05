@@ -36,7 +36,6 @@ class Api::ReposController < ApplicationController
   end
 private
   def repo_params
-    debugger
     params.require(:repo).permit(:user_id, :title, :repository_url, :repository_id)
   end
 end
