@@ -38,14 +38,26 @@ class ApplicationController < ActionController::Base
 
   def cache_repositories
     current_client.repositories.each do |repository|
-      Repository.find_or_create_by(github_id: repository.id, 
-                        user_id: current_user.id, 
-                        name: repository.name, 
-                        description: repository.description,
-                        url: repository.url,
-                        html_url: repository.html_url,
-                        pushed_at: repository.pushed_at,
-                        full_name: repository.full_name)
+      repo = Repository.find_by(github_id: repository.id)
+      if repo
+        repo.update( 
+                    user_id: current_user.id, 
+                    name: repository.name, 
+                    description: repository.description,
+                    url: repository.url,
+                    html_url: repository.html_url,
+                    pushed_at: repository.pushed_at,
+                    full_name: repository.full_name)
+      else
+        Repository.create(github_id: repository.id,
+                          user_id: current_user.id, 
+                          name: repository.name, 
+                          description: repository.description,
+                          url: repository.url,
+                          html_url: repository.html_url,
+                          pushed_at: repository.pushed_at,
+                          full_name: repository.full_name)
+      end
     end
   end
 
