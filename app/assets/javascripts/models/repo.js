@@ -1,10 +1,10 @@
-Catpus.Models.Repo = Backbone.Model.extend({
-  // defaults: {
-  //   id: null,
-  //   user_id: null,
-  //   repository_url: null,
-  //   repository_id: null
-  // },
+Catpus.Models.Board = Backbone.Model.extend({
+  defaults: { board :{
+    id: null,
+    user_id: null,
+    repository_url: null,
+    repository_id: null}
+  },
 
-  urlRoot: 'api/repos'
+  urlRoot: 'api/boards'
 });
