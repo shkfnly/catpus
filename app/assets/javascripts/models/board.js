@@ -3,7 +3,9 @@ Catpus.Models.Board = Backbone.Model.extend({
     id: null,
     user_id: null,
     repository_url: null,
-    repository_id: null}
+    repository_id: null,
+    repository_name: null,
+    }
   },
 
   urlRoot: 'api/boards'

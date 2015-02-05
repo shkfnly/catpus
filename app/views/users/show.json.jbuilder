@@ -5,6 +5,7 @@ json.boards @user.boards do |board|
   json.url board.repository_url
   json.repository_id board.repository_id
   json.pushed_at board.pushed_at
+  json.repository_name board.repository_name
 end
 json.repositories @user.repositories do |repository|
   json.id repository.github_id

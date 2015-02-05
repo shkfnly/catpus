@@ -1,5 +1,5 @@
 
 <h4 class='board-title'>
-  <div><%= board.get('title') %></div>
-  <div><%= moment(board.get('pushed_at')).format("MMMM Do YYYY, h:mm:ss a") %></div>
+  <div><%= board.get('title') %> - <span><%= board.get('repository_name') %></span></div>
+  <div>Updated: <span><%= moment(board.get('pushed_at')).fromNow() %></span></div>
 </h4>

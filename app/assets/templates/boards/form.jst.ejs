@@ -4,7 +4,7 @@
 <input type='text' id='title' name= "board[title]" value='<%= model.title %>' />
 <select>
   <% repositories.each(function(repository){ %>
-    <option value = "<%= repository.get('url')  + '=' + repository.id + '=' + repository.get('pushed_at') %>"> <%= repository.get('name') %> </option>
+    <option value = "<%= repository.get('url')  + '=' + repository.id + '=' + repository.get('pushed_at') + '=' + repository.get('name') %>"> <%= repository.get('name') %> </option>
   <% }) %>
 </select>
 <input type='submit' class='submit' value='Submit'>
