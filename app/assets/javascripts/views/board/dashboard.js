@@ -13,7 +13,7 @@ Catpus.Views.Dashboard = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
     // I am curious about these two listenTos below
     this.listenTo(this.collection, 'sync', this.render);
-    this.listenTo(this.collection, 'sync add', this.addBoard);
+    this.listenTo(this.collection, 'add', this.addBoard);
     this.collection.each(function(board){
       this.addBoard(board)
     }.bind(this))

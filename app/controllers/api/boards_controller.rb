@@ -8,12 +8,17 @@ class Api::BoardsController < ApplicationController
     @board = current_user.boards.new(board_params)
 
     if @board.save
-      repo = Repository.find(github_id: @board.repository_id)
+      repo = Repository.find_by(github_id: @board.repository_id)
       repo.update(board_id: @board.id)
       current_client.create_hook("#{repo.full_name}/", 'web', {
-        :url => "localhost:3500/api/boards/#{@board.id}/hooks",
-        :content_type => 'json'
-        })
+          :url => "localhost:3500/api/boards/#{@board.id}/hooks",
+          :content_type => 'json'
+        },
+        {
+          :events => ['push', 'pull_request', 'create', 'issues'],
+          :active => true
+        }
+      )
       render json: @board
     else
       render json: @board.errors.full_messages, status: :unprocessable_entity
@@ -42,6 +47,6 @@ class Api::BoardsController < ApplicationController
   end
 private
   def board_params
-    params.require(:board).permit(:user_id, :title, :repository_url, :repository_id)
+    params.require(:board).permit(:user_id, :title, :repository_url, :repository_id, :pushed_at)
   end
 end

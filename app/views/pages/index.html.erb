@@ -10,7 +10,6 @@
 <%= javascript_tag do %>
   $(function(){
     window.current_user_id = <%= current_user.id %>
-    window.current_client = <%= current_client %>
     Catpus.initialize('after')
   });
 <% end %>

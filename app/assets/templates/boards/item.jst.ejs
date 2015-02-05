@@ -1,5 +1,5 @@
 
 <h4 class='board-title'>
   <div><%= board.get('title') %></div>
-  <div><%= board.get('pushed_at') %></div>
+  <div><%= moment(board.get('pushed_at')).format("MMMM Do YYYY, h:mm:ss a") %></div>
 </h4>
