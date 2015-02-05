@@ -1,0 +1,11 @@
+<h4>Create a Repo Tracker</h4>
+<input type='hidden' name="board[user_id]" value='<%= this.user.id %>'
+<label for='title'>Title:</label>
+<input type='text' id='title' name= "board[title]" value='<%= model.title %>' />
+<select>
+  <% repositories.each(function(repository){ %>
+    <option value = "<%= repository.get('url')  + '=' + repository.id %>"> <%= repository.get('name') %> </option>
+  <% }) %>
+</select>
+<input type='submit' class='submit' value='Submit'>
+

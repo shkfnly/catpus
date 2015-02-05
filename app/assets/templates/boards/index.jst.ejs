@@ -1,0 +1,7 @@
+<% board.each(function(board){ %>
+  <a href='<%= board.url + '/'+ board.id %>'>
+    <h4 class='board-title'>
+      <%= board.get('title') %>
+    </h4>
+  </a>
+<% }) %>
