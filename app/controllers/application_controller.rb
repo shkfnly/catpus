@@ -6,16 +6,16 @@ class ApplicationController < ActionController::Base
 
   def current_user
     return nil if session[:session_token].nil?
-    User.find_by_session_token(session[:session_token])
+    @current_user ||= User.find_by_session_token(session[:session_token])
   end
   
   def current_client
     return nil unless current_user
-    curr_client ||= Octokit::Client.new(:access_token => current_user.token)
+    @curr_client ||= Octokit::Client.new(:access_token => current_user.token)
   end
 
   def current_client_user
-    user ||= current_client.user unless current_client.nil?
+    @user ||= current_client.user unless current_client.nil?
   end
 
   def log_in!(user)
