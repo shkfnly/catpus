@@ -3,13 +3,14 @@ class User < ActiveRecord::Base
   validates :name, :email, uniqueness: true
 
   has_many :boards
+  has_many :repositories
+  has_many :issues
   
   attr_reader :password
 
   after_initialize :ensure_session_token
 
   def self.create_with_omniauth(auth)
-
     create! do |user|
       user.token = auth.credentials.token
       user.provider = auth["provider"]

@@ -17,7 +17,7 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
     this._swapView(view);
     var newRepo = new Catpus.Models.Board();
     this.model.fetch({success: function(){ 
-      var form = new Catpus.Views.RepoForm({user: this.model, repositories: this.model.repositories(), model: newRepo, collection: Catpus.Collections.board});
+      var form = new Catpus.Views.BoardForm({user: this.model, repositories: this.model.repositories(), model: newRepo, collection: Catpus.Collections.boards});
        this.$rootEl.append(form.render().$el);
     }.bind(this)}) 
   },  

@@ -4,7 +4,7 @@ Catpus.Views.BoardIndex = Backbone.View.extend({
     this.listenTo(this.collection, 'sync add change', this.render)
   },
   render: function(){
-    var content = this.template({repos: this.collection})
+    var content = this.template({boards: this.collection})
     this.$el.html(content);
     return this;
   }

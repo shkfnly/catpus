@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.serializejson.min
-//= require turbolinks
 //= require underscore
 //= require backbone
 //= require backbone.marionette

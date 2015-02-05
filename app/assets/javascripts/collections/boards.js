@@ -3,4 +3,4 @@ Catpus.Collections.Boards = Backbone.Collection.extend({
   model: Catpus.Models.Board
 });
 
-Catpus.Collections.board = new Catpus.Collections.Boards()
+Catpus.Collections.boards = new Catpus.Collections.Boards()
