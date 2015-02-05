@@ -11,7 +11,7 @@ class Api::BoardsController < ApplicationController
       repo = Repository.find_by(github_id: @board.repository_id)
       repo.update(board_id: @board.id)
       current_client.create_hook("#{repo.full_name}/", 'web', {
-          :url => "localhost:3500/api/boards/#{@board.id}/hooks",
+          :url => "https://catpus.herokuapp.com/api/boards/#{@board.id}/hooks",
           :content_type => 'json'
         },
         {
