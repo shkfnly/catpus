@@ -1,10 +1,10 @@
 <div id="header">
   <header>
     <nav>
-      <h1><%= link_to "Catpus", root_url %></h1>
+      <h1><%= link_to "Catpus", "/#" %></h1>
       <% if logged_in? %>
         <div> <%= current_user.name %> </div>
-        <div> <%= link_to "Repositories", ('/#/' + "users/#{current_user.id}") %> </div>
+        <div> <%= link_to "Dashboard", ('/#/' + "users/#{current_user.id}") %> </div>
         <div> <%= button_to "Sign Out", sessions_url, method: :delete %> </div>
       <% else %>
         <%= link_to "Sign in with Github", "/auth/github/" %>

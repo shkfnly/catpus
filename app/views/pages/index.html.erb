@@ -1,7 +1,7 @@
 
 <div id="setting">
   <div id="main">
-    <h3> You've successfully logged in, to get started go to your repositories below</h3>
+    <h3> You've successfully logged in, We are loading your Repositories and Issues</h3>
   </div>
 </div>
 <div id="footer">
@@ -10,6 +10,7 @@
 <%= javascript_tag do %>
   $(function(){
     window.current_user_id = <%= current_user.id %>
+    window.current_client = <%= current_client %>
     Catpus.initialize('after')
   });
 <% end %>

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates :name, :email, uniqueness: true
 
   has_many :boards
+  has_many :cards
   has_many :repositories
   has_many :issues
   

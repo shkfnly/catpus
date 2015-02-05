@@ -16,6 +16,7 @@
 //= require jquery.serializejson.min
 //= require underscore
 //= require backbone
+//= require_tree ./utils
 //= require backbone.marionette
 //= require catpus
 //= require_tree ../templates

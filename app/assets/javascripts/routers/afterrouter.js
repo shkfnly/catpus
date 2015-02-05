@@ -5,19 +5,20 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
   },
 
   routes: {
-    '' : 'landing',
-    'users/:id': 'BoardIndex'
+    '#' : 'Dashboard',
+    'users/:id': 'Dashboard',
   },
 
-  BoardIndex: function(){
-    
-    Catpus.Collections.boards.fetch();
-    var view = new Catpus.Views.BoardIndex({
-      collection: Catpus.Collections.boards});
-    this._swapView(view);
-    var newRepo = new Catpus.Models.Board();
-    this.model.fetch({success: function(){ 
-      var form = new Catpus.Views.BoardForm({user: this.model, repositories: this.model.repositories(), model: newRepo, collection: Catpus.Collections.boards});
+  Dashboard: function(){
+    // Catpus.Collections.boards.fetch();
+    this.model.fetch({success: function(){
+      var view = new Catpus.Views.Dashboard({ 
+        model: this.model,
+        collection: this.model.boards()
+      });
+      this._swapView(view); 
+      var form = new Catpus.Views.BoardForm({ user: this.model, 
+                                               });
        this.$rootEl.append(form.render().$el);
     }.bind(this)}) 
   },  

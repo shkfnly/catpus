@@ -8,6 +8,12 @@ class Api::BoardsController < ApplicationController
     @board = current_user.boards.new(board_params)
 
     if @board.save
+      repo = Repository.find(github_id: @board.repository_id)
+      repo.update(board_id: @board.id)
+      current_client.create_hook("#{repo.full_name}/", 'web', {
+        :url => "localhost:3500/api/boards/#{@board.id}/hooks",
+        :content_type => 'json'
+        })
       render json: @board
     else
       render json: @board.errors.full_messages, status: :unprocessable_entity

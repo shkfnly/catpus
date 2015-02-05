@@ -7,7 +7,9 @@ Catpus.Views.BoardForm = Backbone.View.extend({
   },
   initialize: function(options){
     this.user = options.user;
-    this.repositories = options.repositories;
+    this.repositories = this.user.repositories();
+    this.model = new Catpus.Models.Board();
+    this.collection = this.user.boards();
     this.listenTo(this.repositories, 'change', this.render);
   },
 
@@ -23,6 +25,7 @@ Catpus.Views.BoardForm = Backbone.View.extend({
     var additionalData = $(event.target).find('select').val().split('=');
     data.board.repository_url = additionalData[0];
     data.board.repository_id = additionalData[1];
+    data.board.pushed_at = additionalData[2];
     this.model.save(data, {
       success: function(){
         this.collection.add(this.model);

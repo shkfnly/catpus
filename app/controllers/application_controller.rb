@@ -38,19 +38,21 @@ class ApplicationController < ActionController::Base
 
   def cache_repositories
     current_client.repositories.each do |repository|
-      Repository.create(github_id: repository.id, 
+      Repository.find_or_create_by(github_id: repository.id, 
                         user_id: current_user.id, 
                         name: repository.name, 
                         description: repository.description,
                         url: repository.url,
-                        html_url: repository.html_url)
+                        html_url: repository.html_url,
+                        pushed_at: repository.pushed_at,
+                        full_name: repository.full_name)
     end
   end
 
   def cache_issues
     issues = current_client.issues(nil, {:filter => "subscribed", :state => "open"})
     issues.each do |issue|
-      Issue.create(github_id: issue.id,
+      Issue.find_or_create_by(github_id: issue.id,
                    url: issue.url,
                    html_url: issue.html_url,
                    number: issue.number,

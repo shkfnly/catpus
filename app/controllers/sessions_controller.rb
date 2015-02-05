@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         user.update(fresh: false)
       end
       flash[:notice] = "Successfully Logged In"
-      redirect_to root_url, :notice => "Signed in!"
+      redirect_to "/#/users/#{user.id}", :notice => "Signed in!"
     else
       flash.now[:errors] = ["Invalid email and/or password"]
       render :new
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  
+    current_user.update(fresh: true)
     log_out!(current_user)
     redirect_to root_url, :notice => "Signed out!"
   end
