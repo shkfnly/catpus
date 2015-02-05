@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   validates :username, :email, :name, :uid, presence: true
   validates :name, :email, uniqueness: true
 
-  has_many :repos
+  has_many :boards
   
   attr_reader :password
 

@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   namespace :api,
    defaults: { format: :json } do
-    resources :repos, except: [:edit, :update]
+    resources :boards, except: [:edit, :update]
     resources :lists, only: [:create, :update, :destroy]
-    resources :issue, only: [:create, :update, :destroy, :show]
+    resources :cards, only: [:create, :update, :destroy, :show]
   end
 
   get "/auth/:provider/callback" => "sessions#create"

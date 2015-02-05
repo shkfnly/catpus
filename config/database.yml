@@ -23,5 +23,4 @@ test:
   database: catpus
   host: localhost
   username: ashokafinley
-production:
-  database: db/production.sqlite3
+

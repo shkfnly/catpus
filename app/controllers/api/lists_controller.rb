@@ -1,7 +1,7 @@
 class Api::ListsController < ApplicationController
-  before_action :require_contributer!
+  before_action :require_board_member!
   def create
-    @list = current_repo.lists.new(list_params)
+    @list = current_board.lists.new(list_params)
     
     if @list.save
       render json: @list
@@ -12,7 +12,7 @@ class Api::ListsController < ApplicationController
 
 
   def update
-    @list = current_repo.lists.find(params[:id])
+    @list = current_board.lists.find(params[:id])
     if @list.update_attributes(list_params)
       render json: @list
     else
@@ -29,15 +29,15 @@ class Api::ListsController < ApplicationController
   
   private
     def list_params
-      params.require(:list).permit(:repo_id, :title, :ord)
+      params.require(:list).permit(:board_id, :title, :ord)
     end
 
-    def current_repo
+    def current_board
       if params[:id]
         @list = List.find(params[:id])
-        @repo = @list.repo
+        @board = @list.board
       elsif params[:list]
-        @repo = Repo.find(params[:list][:repo_id])
+        @board = Board.find(params[:list][:board_id])
       end
     end
 end
