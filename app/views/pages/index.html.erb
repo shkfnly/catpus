@@ -1,30 +1,17 @@
 
 <div id="setting">
-
   <div id="main">
-    <h1>Catpus is a Visual Repository Management Tool</h1>
-    <section class='homepage-section'>
-      Organize your repository workflow by creating tasks and timelines. for Allowing assignment of relevant members.
-      Colloborate with contributers and see who is currently working on the directory.
-      Create organizations to work on large projects.
-    </section>
-
-    <% unless current_user %>
-      <%= link_to "Sign in with Github", "/auth/github/" %>
-    <% end %>  
+    <h3> You've successfully logged in, to get started go to your repositories below</h3>
   </div>
 </div>
 <div id="footer">
-  <footer>
-    <nav>
-    <%= link_to "Homepage", root_url %>
-    <%#= link_to "About", about_page_url %>
-    </nav>
-  </footer>
 </div>
 
-<%#= javascript_tag do %>
-  <!-- $(function(){
-    CatpusApp.start();
+<%= javascript_tag do %>
+  $(function(){
+    window.current_user_id = <%= current_user.id %>
+    Catpus.initialize('after')
   });
- --><%# end %>
+<% end %>
+
+

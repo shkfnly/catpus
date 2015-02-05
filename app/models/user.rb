@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   validates :username, :email, :name, :uid, presence: true
   validates :name, :email, uniqueness: true
 
-
+  has_many :repos
+  
   attr_reader :password
 
   after_initialize :ensure_session_token

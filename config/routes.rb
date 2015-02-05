@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users, except: [:index]
   resource :sessions, only: [:new, :create, :destroy]
-  resources :pages, only: [:index, :about]
+  resources :pages, only: [:index, :about, :landing]
 
   namespace :api,
    defaults: { format: :json } do
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   get "/auth/:provider/callback" => "sessions#create"
+  get "/landing" => "pages#landing"
   get "/signout" => "sessions#destroy", :as => :signout
   root 'pages#index'
 

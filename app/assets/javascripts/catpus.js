@@ -3,13 +3,19 @@ window.Catpus = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    alert('Hello from Backbone!');
+  initialize: function(authType) {
+    if(authType == 'before'){
+      new Catpus.Routers.BeforeRouter();
+    }
+    else if (authType == 'after'){
+      new Catpus.Routers.AfterRouter();
+    }
+    Backbone.history.start();
   }
 };
 
 $(document).ready(function(){
-  Catpus.initialize();
+// Catpus.initialize();
 //   window.CatpusApp = function(Backbone, Marionette){
 //   App = new Marionette.Application();
 //   App.addRegions({headerRegion: "#header",

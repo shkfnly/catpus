@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user 
       log_in!(user)
       flash[:notice] = "Successfully Logged In"
-      redirect_to user_url(user), :notice => "Signed in!"
+      redirect_to root_url, :notice => "Signed in!"
     else
       flash.now[:errors] = ["Invalid email and/or password"]
       render :new

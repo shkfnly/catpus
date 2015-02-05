@@ -16,15 +16,6 @@ ActiveRecord::Schema.define(version: 20150204191246) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "boards", force: :cascade do |t|
-    t.string   "title",          null: false
-    t.integer  "user_id",        null: false
-    t.string   "repository_url", null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "repository_id"
-  end
-
   create_table "contributers", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "board_id"
