@@ -37,7 +37,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.includes(:members, lists: :issues).find(params[:id])
+    @board = Board.includes(:members, lists: :cards).find(params[:id])
 
     if @board.is_member?(current_user)
       render :show
