@@ -27,6 +27,7 @@ Catpus.Views.BoardForm = Backbone.View.extend({
     data.board.repository_id = additionalData[1];
     data.board.pushed_at = additionalData[2];
     data.board.repository_name = additionalData[3];
+    console.log(data.board)
     this.model.save(data, {
       success: function(){
         this.collection.add(this.model);
