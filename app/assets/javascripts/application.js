@@ -18,6 +18,7 @@
 //= require backbone
 //= require backbone.marionette
 //= require moment
+//= require pusher.min
 //= require catpus
 //= require_tree ./utils
 //= require_tree ../templates
