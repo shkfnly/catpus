@@ -6,7 +6,7 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
 
   routes: {
     '#' : 'rootHandler',
-    'users/:id': 'Dashboard',
+    'dashboard': 'Dashboard',
   },
 
   Dashboard: function(){
@@ -16,7 +16,15 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
         model: this.model,
         collection: this.model.boards()
       });
-      this._swapView(view); 
+      this._swapView(view);
+
+      var issues = new Catpus.Views.IssueIndex({
+        model: this.model,
+        collection: this.model.issues()
+      });
+
+      this.$rootEl.append(issues.render().$el);
+
       var form = new Catpus.Views.BoardForm({ user: this.model, 
                                                });
        this.$rootEl.append(form.render().$el);

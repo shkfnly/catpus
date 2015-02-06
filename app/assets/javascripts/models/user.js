@@ -15,6 +15,13 @@ Catpus.Models.User = Backbone.Model.extend({
     return this._boards;
   },
 
+  issues: function(){
+    if(!this._issues){
+      this._issues = new Catpus.Collections.Issues([], {user: this});
+    }
+    return this._issues;
+  },
+
   parse: function(payload){
     if(payload.repositories){
       this.repositories().set(payload.repositories, { parse: true });
@@ -23,6 +30,10 @@ Catpus.Models.User = Backbone.Model.extend({
     if(payload.boards){
       this.boards().set(payload.boards, { parse: true });
       delete payload.boards;
+    }
+    if(payload.issues){
+      this.issues().set(payload.issues, { parse: true });
+      delete payload.issues
     }
     return payload
 

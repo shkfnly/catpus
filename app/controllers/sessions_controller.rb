@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         user.update(fresh: false)
       end
       flash[:notice] = "Successfully Logged In"
-      redirect_to "/#/users/#{user.id}", :notice => "Signed in!"
+      redirect_to "/#/dashboard", :notice => "Signed in!"
     else
       flash.now[:errors] = ["Invalid email and/or password"]
       render :new

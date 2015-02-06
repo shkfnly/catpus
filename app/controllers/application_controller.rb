@@ -67,17 +67,32 @@ class ApplicationController < ActionController::Base
   end
 
   def cache_issues
-    issues = current_client.issues(nil, {:filter => "subscribed", :state => "open"})
-    issues.each do |issue|
-      Issue.find_or_create_by(github_id: issue.id,
-                   url: issue.url,
-                   html_url: issue.html_url,
-                   number: issue.number,
-                   title: issue.title,
-                   body: issue.body,
-                   user_id: current_user.id,
-                   username: current_user.username,
-                   )
+    current_client.issues(nil, {:filter => "subscribed", :state => "open"}).each do |issue|
+      iss = Issue.find_by(github_id: issue.id)
+      if iss 
+        iss.update(
+                     url: issue.url,
+                     html_url: issue.html_url,
+                     number: issue.number,
+                     title: issue.title,
+                     body: issue.body,
+                     user_id: current_user.id,
+                     username: current_user.username,
+                     )
+      else
+        Issue.create(
+                     github_id: issue.id,
+                     url: issue.url,
+                     html_url: issue.html_url,
+                     number: issue.number,
+                     title: issue.title,
+                     body: issue.body,
+                     user_id: current_user.id,
+                     username: issue.user.login,
+                     repository_id: issue.repository.id,
+                     repository_name: issue.repository.name
+                     )
+      end
     end
   end
 

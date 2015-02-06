@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
   resource :sessions, only: [:new, :create, :destroy]
   resources :pages, only: [:index, :about, :landing]
+  resource :dashboard, only: [:index]
 
   namespace :api,
    defaults: { format: :json } do
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
     end
     resources :lists, only: [:create, :update, :destroy]
     resources :cards, only: [:create, :update, :destroy, :show]
+
   end
 
   get "/auth/:provider/callback" => "sessions#create"
