@@ -4,9 +4,11 @@ class Api::HooksController < ApplicationController
   
   def create
     board = Board.find(params[:board_id])
-    board.update(pushed_at: params[:repository][:pushed_at])
-    repo = Repository.find_by(github_id: board.repository_id)
-    repo.update(pushed_at: params[:repository][:pushed_at])
+    unless params[:zen]
+      board.update(pushed_at: params[:head_commit][:timestamp])
+      repo = Repository.find_by(github_id: board.repository_id)
+      repo.update(pushed_at: params[:head_commit][:timestamp])
+    end
     render json: {}
   end
 
