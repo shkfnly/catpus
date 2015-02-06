@@ -5,6 +5,10 @@ Catpus.Views.Board = Backbone.View.extend({
     'click' : 'handleClick'
   },
 
+  initialize: function(){
+    this.listenTo(this.model, 'change sync add', this.render);
+  }
+
   render: function(){
     var content = this.template({board: this.model})
     this.$el.html(content);
