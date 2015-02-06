@@ -7,6 +7,7 @@ class Api::BoardsController < ApplicationController
   def create
     @board = current_user.boards.new(board_params)
     if @board.save
+      BoardMembership.create(board_id: @board.id, user_id: current_user.id)
       repo = Repository.find_by(github_id: @board.repository_id)
       repo.update(board_id: @board.id)
       current_client.create_hook("#{repo.full_name}/", 'web', {
