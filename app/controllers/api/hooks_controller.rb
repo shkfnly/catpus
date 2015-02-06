@@ -1,6 +1,8 @@
-class Api::Boards::HooksController < ApplicationController
+class Api::HooksController < ApplicationController
 
-  def update
+  skip_before_filter :verify_authenticity_token
+  
+  def create
     board = Board.find(params[:board_id])
     board.update(pushed_at: params[:head_commit][:timestamp])
     repo = Repository.find_by(github_id: board.repository_id)
