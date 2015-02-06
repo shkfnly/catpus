@@ -11,7 +11,7 @@ Catpus.Views.Board = Backbone.View.extend({
     channel.bind('webhook-push', function(data){
       this.model.fetch()
     }.bind(this));
-  }
+  },
 
   render: function(){
     var content = this.template({board: this.model})
