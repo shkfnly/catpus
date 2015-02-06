@@ -10,6 +10,7 @@ window.Catpus = {
     else if (authType == 'after'){
       new Catpus.Routers.AfterRouter();
     }
+
     Backbone.history.start();
   }
 };
