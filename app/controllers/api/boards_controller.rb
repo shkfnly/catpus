@@ -40,7 +40,7 @@ class Api::BoardsController < ApplicationController
     @board = Board.includes(:members, lists: :issues).find(params[:id])
 
     if @board.is_member?(current_user)
-      render json: {}
+      render :show
     else
       render json: ["You aren't a contributer to this repository"], status: 403
     end
