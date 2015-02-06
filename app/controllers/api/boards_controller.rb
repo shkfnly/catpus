@@ -6,7 +6,6 @@ class Api::BoardsController < ApplicationController
 
   def create
     @board = current_user.boards.new(board_params)
-
     if @board.save
       repo = Repository.find_by(github_id: @board.repository_id)
       repo.update(board_id: @board.id)
