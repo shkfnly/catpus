@@ -7,6 +7,10 @@ Catpus.Views.Board = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.model, 'change sync add', this.render);
+    this.channel = pusher.subscribe('boards');
+    channel.bind('webhook-push', function(data){
+      this.model.fetch()
+    }.bind(this));
   }
 
   render: function(){

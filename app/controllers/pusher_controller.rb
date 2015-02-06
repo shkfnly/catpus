@@ -1,2 +1,0 @@
-class PusherController < ApplicationController
-end

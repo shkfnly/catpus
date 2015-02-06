@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?, :current_client, :current_client_user
 
+  Pusher.app_id = Rails.application.secrets['PUSHER_APP_ID']
+  Pusher.key = Rails.application.secrets['PUSHER_APP_KEY']
+  Pusher.secret = Rails.application.secrets['PUSHER_APP_SECRET']
+  Pusher.url = "http://edff1e92c04899ef664d:63c5f2d44cfbca6f3269@api.pusherapp.com/apps/106133"
+  
   def current_user
     return nil if session[:session_token].nil?
     @current_user ||= User.find_by_session_token(session[:session_token])

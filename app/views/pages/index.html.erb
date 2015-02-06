@@ -11,7 +11,10 @@
   $(function(){
     window.current_user_id = <%= current_user.id %>
     Catpus.initialize('after')
-    var pusher = new
+    window.pusher = new Pusher("<%= Rails.application.secrets['PUSHER_APP_ID'] %>")
+    
+
+
   });
 <% end %>
 
