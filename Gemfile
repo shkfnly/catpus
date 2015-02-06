@@ -67,4 +67,6 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'puma'
+  gem 'dalli'
+  gem 'memcachier'
 end
