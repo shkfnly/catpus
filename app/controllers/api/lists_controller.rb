@@ -1,6 +1,9 @@
 class Api::ListsController < Api::ApiController
 
   # before_action :require_board_member!
+  def new
+    @lists = current_board.lists
+  end
   
   def create
     @list = current_board.lists.new(list_params)
