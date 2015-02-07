@@ -1,10 +1,11 @@
 class Api::ListsController < Api::ApiController
 
   # before_action :require_board_member!
-  def new
+  def index
     @lists = current_board.lists
+    render json: @lists
   end
-  
+
   def create
     @list = current_board.lists.new(list_params)
     
