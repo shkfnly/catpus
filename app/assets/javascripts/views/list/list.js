@@ -5,12 +5,17 @@ Catpus.Views.List = Backbone.CompositeView.extend({
 
   initialize: function(){
     this.collection = this.model.cards();
-    this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.model, 'change sync', this.render);
+    this.listenTo(this.collection, 'change sync', this.render);
     this.listenTo(this.collection, 'add', this.addCard);
     this.renderForm();
     this.collection.each(function(card){
       this.addCard(card);
+    }.bind(this));
+    this.channel = pusher.subscribe('boards');
+    this.channel.bind('webhook-push', function(data){
+      this.model.fetch();
+      this.collection.fetch();
     }.bind(this));
   },
 
