@@ -1,6 +1,6 @@
 class Api::CardsController < Api::ApiController
   
-  before_action :require_board_member!
+  # before_action :require_board_member!
 
   def create
     @card = current_list.cards.new(card_params)
