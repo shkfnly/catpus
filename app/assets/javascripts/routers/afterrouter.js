@@ -1,4 +1,5 @@
 Catpus.Routers.AfterRouter = Backbone.Router.extend({
+
   initialize: function(){
     this.$rootEl = $('#main')
     this.model = new Catpus.Models.User({id: current_user_id})
@@ -19,13 +20,13 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
       });
       this._swapView(view);
 
+      //incorporate these too into the dashboard view to simplify
       var issues = new Catpus.Views.IssueIndex({
         model: this.model,
         collection: this.model.issues()
       });
 
       this.$rootEl.append(issues.render().$el);
-
       var form = new Catpus.Views.BoardForm({ user: this.model, 
                                                });
        this.$rootEl.append(form.render().$el);
@@ -44,9 +45,6 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
     )
   },
 
-  rootHandler: function(){
-    Backbone.history.navigate('dashboard', {trigger: true})
-  },
   _swapView: function(view){
     this._currentView && this._currentView.remove();
     this._currentView = view

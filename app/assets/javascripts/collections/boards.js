@@ -18,5 +18,3 @@ Catpus.Collections.Boards = Backbone.Collection.extend({
     return board;
   }
 });
-
-Catpus.Collections.boards = new Catpus.Collections.Boards()
