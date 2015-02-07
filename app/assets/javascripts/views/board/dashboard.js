@@ -18,11 +18,7 @@ Catpus.Views.Dashboard = Backbone.CompositeView.extend({
       this.addBoard(board)
     }.bind(this));
 
-    this.channel = pusher.subscribe('boards');
-    this.channel.bind('webhook-push', function(data){
-        console.log('what')
-      this.collection.fetch();
-    }.bind(this));
+    
   },
 
   render: function(){

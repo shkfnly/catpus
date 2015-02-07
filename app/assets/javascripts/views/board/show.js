@@ -13,6 +13,11 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
       this.addList(list);
     }.bind(this));
     this.renderForm();
+    this.channel = pusher.subscribe('boards');
+    this.channel.bind('webhook-push', function(data){
+        console.log('what')
+      this.collection.fetch();
+    }.bind(this));
   },
 
   render: function(){
