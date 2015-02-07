@@ -7,6 +7,7 @@ class Board < ActiveRecord::Base
   has_many :lists, dependent: :destroy
   has_many :board_memberships, dependent: :destroy
   has_many :members, through: :board_memberships, source: :user
+  has_many :cards, through: :lists 
 
   def is_member?(u)
     return true if u.id == self.user_id

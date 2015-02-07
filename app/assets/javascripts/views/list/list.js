@@ -8,10 +8,10 @@ Catpus.Views.List = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addCard);
+    this.renderForm();
     this.collection.each(function(card){
       this.addCard(card);
     }.bind(this));
-    this.renderForm();
   },
 
   render: function(){
@@ -22,11 +22,12 @@ Catpus.Views.List = Backbone.CompositeView.extend({
   },
 
   renderForm: function(){
-    var form = new Catpus.Views.CardForm({list: this.model});
+    var form = new Catpus.Views.CardForm({list: this.model, collection: this.collection});
     this.addSubview('.card-form', form);
   },
 
   addCard: function(card){
+    
     var view = new Catpus.Views.Card({model: card});
     this.addSubview('.card-index', view);
   }

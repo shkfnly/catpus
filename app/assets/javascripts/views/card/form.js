@@ -9,7 +9,6 @@ Catpus.Views.CardForm = Backbone.View.extend({
 
   initialize: function(options){
     this.list = options.list;
-    this.collection = this.list.cards();
     this.model = new Catpus.Models.Card();
   },
 
