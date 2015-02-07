@@ -2,8 +2,7 @@ class Api::CardsController < Api::ApiController
   
   # before_action :require_board_member!
   def index
-    debugger
-    list = List.find(params[:data][:list_id])
+    list = List.find(params[:list_id])
     @cards = list.cards
     render json: @cards
   end

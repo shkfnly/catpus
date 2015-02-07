@@ -15,7 +15,18 @@ Catpus.Views.List = Backbone.CompositeView.extend({
     this.channel = pusher.subscribe('boards');
     this.channel.bind('webhook-push', function(data){
 
-      this.collection.fetch({data: {list_id: this.model.id}});
+      this.collection.fetch({
+        sucess: function(){
+          _(this.subviews('.card-index')).each(function(subview){
+            this.removeSubview('.card-index', subview);
+          }.bind(this))
+          this.collection.each(function(card){
+            this.addCard(card);
+          }.bind(this))
+        }.bind(this),
+        data: {list_id: this.model.id},
+
+      });
     }.bind(this));
   },
 
