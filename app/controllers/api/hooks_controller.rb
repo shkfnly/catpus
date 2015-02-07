@@ -7,7 +7,7 @@ class Api::HooksController < Api::ApiController
     unless params[:zen]
       card = board.cards.find_by(title: params[:head_commit][:message])
       if card
-        card.remove
+        card.destroy
       end
       board.update(pushed_at: params[:head_commit][:timestamp])
       repo = Repository.find_by(github_id: board.repository_id)
