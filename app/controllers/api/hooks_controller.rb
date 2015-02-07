@@ -9,6 +9,12 @@ class Api::HooksController < Api::ApiController
       repo = Repository.find_by(github_id: board.repository_id)
       repo.update(pushed_at: params[:head_commit][:timestamp])
     end
+    if params[:commits]
+      card = board.cards.find_by(title: params[:commits].first[:message])
+      if card
+        card.destroy
+      end
+    end
     Pusher['boards'].trigger('webhook-push', {board: board}, request.headers["X-Pusher-Socket-ID"])
     render json: board
   end
