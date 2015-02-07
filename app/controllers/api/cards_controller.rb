@@ -5,7 +5,7 @@ class Api::CardsController < Api::ApiController
     @cards = Card.all
     render json: @cards
   end
-  
+
   def create
     @card = current_list.cards.new(card_params)
 
@@ -32,7 +32,7 @@ class Api::CardsController < Api::ApiController
   end
 
   def show
-    @card = current_list.cards.find(params[:id])
+    @card = Card.find(params[:id]) || Card.new
     render :show
   end
 
