@@ -12,7 +12,7 @@ class Api::BoardsController < Api::ApiController
       repo.update(board_id: @board.id)
       current_client.create_hook("#{repo.full_name}", 'web', {
           # :url => "https://catpus.herokuapp.com/api/boards/#{@board.id}/hooks",
-          :url => "http://5cae8db6.ngrok.com",
+          :url => "http://5cae8db6.ngrok.com/api/boards/#{@board.id}/hooks",
           :content_type => 'json'
         },
         {
