@@ -6,6 +6,11 @@ class Api::ListsController < Api::ApiController
     render json: @lists
   end
 
+  def show
+    @list = List.find(params[:id])
+    render json: @list
+  end
+  
   def create
     @list = current_board.lists.new(list_params)
     
