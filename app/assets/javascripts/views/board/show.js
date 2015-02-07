@@ -6,8 +6,8 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
   initialize: function(){
     this.collection = this.model.lists();
     this.members = this.model.members();
-    this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.model, 'change sync', this.render);
+    this.listenTo(this.collection, 'change sync', this.render);
     this.listenTo(this.collection, 'add', this.addList);
     this.collection.each(function(list){
       this.addList(list);
@@ -15,7 +15,7 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     this.renderForm();
     this.channel = pusher.subscribe('boards');
     this.channel.bind('webhook-push', function(data){
-        console.log('what')
+      this.model.fetch();
       this.collection.fetch();
     }.bind(this));
   },
