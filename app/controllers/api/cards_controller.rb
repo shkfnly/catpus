@@ -1,5 +1,6 @@
-class Api::CardsController < ApplicationController
-    before_action :require_board_member!
+class Api::CardsController < Api::ApiController
+  
+  before_action :require_board_member!
 
   def create
     @card = current_list.cards.new(card_params)
@@ -33,7 +34,7 @@ class Api::CardsController < ApplicationController
 
   private
     def card_params
-      params.require(:card).permit(:title, :list_id, :ord)
+      params.require(:card).permit(:title, :list_id, :description, :ord)
     end
 
     def current_list
@@ -43,5 +44,9 @@ class Api::CardsController < ApplicationController
       elsif params[:card]
         @list = List.find(params[:card][:list_id])
       end
+    end
+
+    def current_board
+      current_list.board
     end
 end

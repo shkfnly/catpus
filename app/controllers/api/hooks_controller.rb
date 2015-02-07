@@ -1,4 +1,4 @@
-class Api::HooksController < ApplicationController
+class Api::HooksController < Api::ApiController
 
   skip_before_filter :verify_authenticity_token
   

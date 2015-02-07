@@ -8,5 +8,33 @@ Catpus.Models.Board = Backbone.Model.extend({
     }
   },
 
-  urlRoot: 'api/boards'
+  urlRoot: 'api/boards',
+
+  members: function(){
+    if(!this._members) {
+      this._members = new Catpus.Collections.Users([]);
+    }
+    return this._members;
+  },
+
+  lists: function(){
+    if (!this._lists) {
+      this._lists = new Catpus.Collections.Lists([], {board: this});
+    }
+    return this._lists;
+  },
+
+  parse: function(payload){
+    if (payload.members){
+      this.members().set(payload.members, { parse: true});
+      delete payload.members;
+    }
+
+    if (payload.lists) {
+      this.lists().set(payload.lists, { parse: true });
+      delete payload.lists;
+    }
+
+    return payload;
+  }
 });

@@ -1,4 +1,4 @@
-class Api::BoardsController < ApplicationController
+class Api::BoardsController < Api::ApiController
   
   def new
     render :new

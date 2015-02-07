@@ -23,7 +23,6 @@ Catpus.Views.BoardForm = Backbone.View.extend({
     event.preventDefault();
     var data = $(event.target).serializeJSON();
     var additionalData = $(event.target).find('select').val().split('=');
-    debugger
     data.board.repository_url = additionalData[0];
     data.board.repository_id = additionalData[1];
     data.board.pushed_at = additionalData[2];
@@ -31,7 +30,7 @@ Catpus.Views.BoardForm = Backbone.View.extend({
     this.model.save(data, {
       success: function(){
         this.collection.add(this.model);
-        Backbone.history.navigate('users/' + this.user .id, {trigger: true})
+        Backbone.history.navigate('#/boards/' + this.model.id , {trigger: true})
       }.bind(this)
     })
   }

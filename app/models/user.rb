@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :cards
   has_many :repositories
   has_many :issues
+  has_many :board_memberships
+  has_many :contrib_boards, through: :board_membership
   
   attr_reader :password
 

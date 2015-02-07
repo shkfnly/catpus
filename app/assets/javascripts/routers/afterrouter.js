@@ -7,6 +7,7 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
   routes: {
     '#' : 'rootHandler',
     'dashboard': 'Dashboard',
+    'boards/:id': 'BoardShow'
   },
 
   Dashboard: function(){
@@ -29,10 +30,22 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
                                                });
        this.$rootEl.append(form.render().$el);
     }.bind(this)}) 
-  },  
+  },
+
+  BoardShow: function(id){
+    this.model.fetch({
+      success: function(){
+        var board = this.model.boards().getOrFetch(id);
+        var view = new Catpus.Views.BoardShow({
+                        model: board
+                      });
+        this._swapView(view);
+      }.bind(this)}
+    )
+  },
 
   rootHandler: function(){
-    Backbone.history.navigate('users/' + this.model.id, {trigger: true})
+    Backbone.history.navigate('dashboard', {trigger: true})
   },
   _swapView: function(view){
     this._currentView && this._currentView.remove();

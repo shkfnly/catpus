@@ -1,2 +1,2 @@
-class Api::BoardMembershipsController < ApplicationController
+class Api::BoardMembershipsController < Api::ApiController
 end
