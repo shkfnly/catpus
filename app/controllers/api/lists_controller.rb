@@ -2,7 +2,7 @@ class Api::ListsController < Api::ApiController
 
   # before_action :require_board_member!
   def index
-    @lists = current_board.lists
+    @lists = List.all
     render json: @lists
   end
 
