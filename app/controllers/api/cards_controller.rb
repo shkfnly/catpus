@@ -2,7 +2,9 @@ class Api::CardsController < Api::ApiController
   
   # before_action :require_board_member!
   def index
-    @cards = Card.all
+    debugger
+    list = List.find(params[:data][:list_id])
+    @cards = list.cards
     render json: @cards
   end
 
@@ -32,7 +34,7 @@ class Api::CardsController < Api::ApiController
   end
 
   def show
-    @card = Card.find(params[:id]) || Card.new
+    @card = current_list.cards.find(params[:id])
     render :show
   end
 

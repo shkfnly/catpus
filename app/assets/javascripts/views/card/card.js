@@ -7,10 +7,10 @@ Catpus.Views.Card = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync change destroy', this.render);
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addBoard);
-    this.channel = pusher.subscribe('boards');
-    this.channel.bind('webhook-push', function(data){
-      this.model.fetch();
-    }.bind(this));
+    // this.channel = pusher.subscribe('boards');
+    // this.channel.bind('webhook-push', function(data){
+    //   this.model.fetch();
+    // }.bind(this));
     // this.collection.each(function(task){
     //   this.addTask(task)
     // }.bind(this));
