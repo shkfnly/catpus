@@ -33,6 +33,7 @@ Catpus.Views.BoardForm = Backbone.View.extend({
         Backbone.history.navigate('#/boards/' + this.model.id , {trigger: true})
       }.bind(this)
     })
+    this.$('#board-title').val('');
   }
 
 })

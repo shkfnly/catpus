@@ -5,35 +5,17 @@ Catpus.Views.List = Backbone.CompositeView.extend({
 
   initialize: function(){
     this.collection = this.model.cards();
-    this.listenTo(this.model, 'change sync', this.render);
-    this.listenTo(this.collection, 'change sync', this.render);
+    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addCard);
-    this.renderForm();
-    this.collection.each(function(card){
-      this.addCard(card);
-    }.bind(this));
-    this.channel = pusher.subscribe('boards');
-    this.channel.bind('webhook-push', function(data){
-
-      this.collection.fetch({
-        sucess: function(){
-          _(this.subviews('.card-index')).each(function(subview){
-            this.removeSubview('.card-index', subview);
-          }.bind(this))
-          this.collection.each(function(card){
-            this.addCard(card);
-          }.bind(this))
-        }.bind(this),
-        data: {list_id: this.model.id},
-
-      });
-    }.bind(this));
+    this.initializePusher();
   },
 
   render: function(){
     var content = this.template({list: this.model});
     this.$el.html(content);
-    this.attachSubviews();
+    this.renderForm();
+    this.renderCards();
     return this;
   },
 
@@ -46,6 +28,31 @@ Catpus.Views.List = Backbone.CompositeView.extend({
     
     var view = new Catpus.Views.Card({model: card});
     this.addSubview('.card-index', view);
+  },
+
+  renderCards: function(){
+    this.model.cards().each(this.addCard.bind(this));
+    this.$('.card-index').sortable({connectWith: '.card-index'});
+  },
+
+  initializePusher: function(){
+    this.channel = pusher.subscribe('boards');
+    this.channel.bind('webhook-push', function(data){
+      this.collection.fetch({
+      });
+    }.bind(this));
   }
+
+//   sucess: function(){
+//   _(this.subviews('.card-index')).each(function(subview){
+//     this.removeSubview('.card-index', subview);
+//   }.bind(this))
+
+//   this.collection.each(function(card){
+
+//     this.addCard(card);
+//   }.bind(this))
+// }.bind(this),
+// data: {list_id: this.model.id},
 
 })

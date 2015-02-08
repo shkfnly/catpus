@@ -15,6 +15,7 @@ Catpus.Views.CardForm = Backbone.View.extend({
   render: function(){
     var content = this.template({model: this.model, list: this.list});
     this.$el.html(content);
+    this.delegateEvents();
     return this;
   },
 
@@ -26,5 +27,8 @@ Catpus.Views.CardForm = Backbone.View.extend({
         this.collection.add(this.model);
       }.bind(this)
     })
+    this.$('#card-title').val('');
+    this.$('textarea').val('');
+
   },
 })

@@ -1,8 +1,5 @@
 class Api::BoardsController < Api::ApiController
-  
-  def new
-    render :new
-  end
+
 
   def create
     @board = current_user.boards.new(board_params)

@@ -6,24 +6,22 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
   initialize: function(){
     this.collection = this.model.lists();
     this.members = this.model.members();
-    this.listenTo(this.model, 'change sync', this.render);
-    this.listenTo(this.collection, 'change sync', this.render);
+    this.listenTo(this.model, 'sync', this.render);
+    // this.listenTo(this.collection, 'change sync', this.render);
     this.listenTo(this.collection, 'add', this.addList);
-    this.collection.each(function(list){
-      this.addList(list);
-    }.bind(this));
-    this.renderForm();
-    this.channel = pusher.subscribe('boards');
-    this.channel.bind('webhook-push', function(data){
-      this.model.fetch();
-      this.collection.fetch();
-    }.bind(this));
+    // this.collection.each(function(list){
+    //   this.addList(list);
+    // }.bind(this));
+    this.initializePusher();
+    
   },
 
   render: function(){
     var content = this.template({board: this.model});
     this.$el.html(content);
-    this.attachSubviews();
+    
+    this.renderLists();
+    this.renderForm();
     return this;
   },
 
@@ -32,13 +30,27 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     this.addSubview('.list-form', form)
   },
 
+
   addList: function(list){
     var view = new Catpus.Views.List({model: list})
     this.addSubview('.list-index', view)
   },
 
+  renderLists: function(){
+    this.model.lists().each(this.addList.bind(this));
+    this.$('.list-index').sortable();
+  },
+
   addMember: function(member){
     var view = new Catpus.Views.Member({model: member})
   },
+
+  initializePusher: function(){
+    this.channel = pusher.subscribe('boards');
+    this.channel.bind('webhook-push', function(data){
+      this.model.fetch();
+      this.collection.fetch();
+    }.bind(this));
+  }
   
 })

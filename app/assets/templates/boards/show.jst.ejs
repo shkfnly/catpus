@@ -1,5 +1,5 @@
 <h4 class='board-title'></h4>
-  <div><h5><%= board.get('title') %> - <span><%= board.get('repository_name') %></span></h5></div>
+  <div><h5><%= board.escape('title') %> - <span><%= board.escape('repository_name') %></span></h5></div>
   <div><h5>Updated: <span><%= moment(board.get('pushed_at')).fromNow() %></span></h5></div>
 <div class='list-index'></div>
 <div class='list-form'></div>

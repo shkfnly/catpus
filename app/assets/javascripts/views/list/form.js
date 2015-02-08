@@ -18,8 +18,6 @@ Catpus.Views.ListForm = Backbone.View.extend({
     return this;
   },
 
-
-
   listCreate: function(event){
     event.preventDefault();
     var data = $(event.target).serializeJSON();
@@ -28,5 +26,6 @@ Catpus.Views.ListForm = Backbone.View.extend({
         this.collection.add(this.model);
       }.bind(this)
     })
+    this.$('#list-title').val('');
   },
 })
