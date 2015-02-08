@@ -49,7 +49,7 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     this.channel = pusher.subscribe('boards');
     this.channel.bind('webhook-push', function(data){
       this.model.fetch();
-      this.collection.fetch();
+      this.collection.fetch({data: {list_id: this.model.id}});
     }.bind(this));
   }
   
