@@ -9,7 +9,6 @@ Catpus.Views.ListForm = Backbone.View.extend({
   initialize: function(options){
     this.board = options.board;
     this.collection = this.board.lists();
-    this.model = new Catpus.Models.List();
   },
 
   render: function(){
@@ -21,6 +20,7 @@ Catpus.Views.ListForm = Backbone.View.extend({
   listCreate: function(event){
     event.preventDefault();
     var data = $(event.target).serializeJSON();
+    this.model = new Catpus.Models.List()
     this.model.save(data, {
       success: function(){
         this.collection.add(this.model);

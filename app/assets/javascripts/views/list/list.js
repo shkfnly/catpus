@@ -1,7 +1,7 @@
 Catpus.Views.List = Backbone.CompositeView.extend({
 
   template: JST['lists/list'],
-  className: 'list-display',
+  className: 'list-display col-md-3',
 
   events: {
     'click .delete-list' : 'deleteList'

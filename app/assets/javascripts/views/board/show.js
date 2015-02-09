@@ -9,10 +9,7 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     this.repository = this.model.repository();
     this.issues = this.repository.issues();
     this.vents = this.repository.events();
-    this.repository.fetch({ 
-      data: {id: this.model.id}
-     }
-    );
+    this.repository.fetch({ data: {id: this.model.id}} );
     this.listenTo(this.model, 'sync', this.render);
     // this.listenTo(this.collection, 'change sync', this.render);
     this.listenTo(this.collection, 'add', this.addList);
@@ -33,7 +30,7 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     this.renderLists();
     this.renderForm();
     this.renderEvents();
-    // this.renderIssues();
+    this.renderIssues();
     return this;
   },
 
