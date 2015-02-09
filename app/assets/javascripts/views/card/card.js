@@ -16,6 +16,10 @@ Catpus.Views.Card = Backbone.CompositeView.extend({
     // }.bind(this));
   },
 
+  events: {
+    'click .delete-card' : 'deleteCard'
+  },
+
   render: function(){
     var content = this.template({card: this.model});
     this.$el.html(content);
@@ -27,6 +31,11 @@ Catpus.Views.Card = Backbone.CompositeView.extend({
   addTask: function(task){
     var view = new Catpus.Views.Task({model: task});
     this.addSubview('.task-index', view);
+  },
+
+  deleteCard: function(){
+    this.model.destroy({wait: true})
+    this.remove();
   }
 
 

@@ -3,6 +3,10 @@ Catpus.Views.List = Backbone.CompositeView.extend({
   template: JST['lists/list'],
   className: 'list-display',
 
+  events: {
+    'click .delete-list' : 'deleteList'
+  },
+
   initialize: function(){
     this.collection = this.model.cards();
     this.listenTo(this.model, 'sync', this.render);
@@ -41,6 +45,11 @@ Catpus.Views.List = Backbone.CompositeView.extend({
       this.collection.fetch({ data: {list_id: this.model.id}
       });
     }.bind(this));
+  },
+
+  deleteList: function(){
+    this.model.destroy({wait: true})
+    this.remove();
   }
 
 //   sucess: function(){
