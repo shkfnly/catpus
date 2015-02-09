@@ -16,7 +16,7 @@
 //= require jquery.serializejson.min
 //= require underscore
 //= require backbone
-//= require backbone.marionette
+//= require bootstrap-sprockets
 //= require moment
 //= require pusher.min
 //= require catpus

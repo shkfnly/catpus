@@ -6,7 +6,7 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
   },
 
   routes: {
-    '#' : 'rootHandler',
+    '' : 'rootHandler',
     'dashboard': 'Dashboard',
     'boards/:id': 'BoardShow'
   },
@@ -31,6 +31,10 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
                                                });
        this.$rootEl.append(form.render().$el);
     }.bind(this)}) 
+  },
+
+  rootHandler: function(){
+    Backbone.history.navigate('dashboard', {trigger: true})
   },
 
   BoardShow: function(id){
