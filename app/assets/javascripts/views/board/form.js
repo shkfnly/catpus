@@ -5,6 +5,7 @@ Catpus.Views.BoardForm = Backbone.View.extend({
   events: {
     'submit': 'submit'
   },
+  
   initialize: function(options){
     this.user = options.user;
     this.repositories = this.user.repositories();

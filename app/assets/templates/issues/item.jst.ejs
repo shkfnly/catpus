@@ -1,5 +1,4 @@
 
-<h5><%= issue.get('title') %></h3>
-<p><%= issue.get('user') %></p>
-<p><%= issue.get('repository') %></p>
+<a href=<%= issue.get('html_url') %><h6><%= issue.get('title') %></h6></a>
+<p><img class='thumbnail' src=<%= issue.get('avatar_url') %> /> <%= issue.get('login') %></p>
 <p><%= issue.get('body') %></p>

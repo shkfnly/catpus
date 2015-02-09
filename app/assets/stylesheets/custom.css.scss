@@ -1,6 +1,18 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.thumbnail {
+  height: 40px;
+  width: 40px;
+  margin: 0;
+  display: inline;
+}
+
+.event-index {
+  height: 500px;
+  overflow: auto;
+}
+
   .nav-li {
     a{
       padding: 0 !important;

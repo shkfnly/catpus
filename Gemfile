@@ -9,8 +9,9 @@ gem "omniauth-github", '1.1.1'
 gem "backbone-on-rails"
 # Github API Helper
 gem "octokit", "~> 3.0"
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+
+gem 'faraday-http-cache'
+
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 # Use SCSS for stylesheets

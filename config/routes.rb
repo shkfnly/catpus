@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
     resources :lists, only: [:index, :show, :create, :update, :destroy]
     resources :cards, only: [:index, :create, :update, :destroy, :show]
+    resources :repositories, only: [:index, :show]
 
   end
 

@@ -1,6 +1,23 @@
 <h4 class='board-title'></h4>
-  <div><h5><%= board.escape('title') %> - <span><%= board.escape('repository_name') %></span></h5></div>
+  <div><h4><%= board.escape('title') %> - <span><%= board.escape('repository_name') %></span></h4></div>
   <div><h5>Updated: <span><%= moment(board.get('pushed_at')).fromNow() %></span></h5></div>
-<div class='list-index'></div>
-<div class='list-form'></div>
-<div class='member-index'></div>
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-9'>
+      <div class='list-index'></div>
+      <div class='list-form'></div>
+    </div>
+    <div class='col-md-3'>
+      <h3>Issues</h3>
+      <ul class='issue-index'></ul>
+      <h3>Events</h3>
+      <ul class='event-index'></ul>
+      <div class='member-index'></div>
+      <div class='collaborator-index'></div>
+      <div class='contributer-index'></div>
+    </div>
+  </div>
+  <div class='row'>
+
+  </div>
+</div>

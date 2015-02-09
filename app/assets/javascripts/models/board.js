@@ -24,6 +24,13 @@ Catpus.Models.Board = Backbone.Model.extend({
     return this._lists;
   },
 
+  repository: function(){
+    if (!this._repository) {
+      this._repository = new Catpus.Models.Repository([], {board: this});
+    }
+    return this._repository;
+  },
+
   parse: function(payload){
     if (payload.members){
       this.members().set(payload.members, { parse: true});

@@ -8,11 +8,12 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     if user 
       log_in!(user)
-      if user.fresh
-        cache_repositories
-        cache_issues
-        user.update(fresh: false)
-      end
+      # if user.fresh
+      cache_repositories
+      cache_issues
+      user.update(fresh: false)
+      faraday_stack
+      # end
       flash[:notice] = "Successfully Logged In"
       redirect_to "/#/dashboard", :notice => "Signed in!"
     else

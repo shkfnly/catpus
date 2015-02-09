@@ -19,3 +19,8 @@ json.lists @board.lists do |list|
     json.list_id card.list_id
   end
 end
+
+json.repository @board.repositories do |repository|
+  json.id repository.id
+  json.name repository.name
+end
