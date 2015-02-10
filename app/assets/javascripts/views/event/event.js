@@ -4,6 +4,7 @@ Catpus.Views.Event = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.model, 'change sync add', this.render);
+    // this.initializePusher();
   },
   
   render: function(){
