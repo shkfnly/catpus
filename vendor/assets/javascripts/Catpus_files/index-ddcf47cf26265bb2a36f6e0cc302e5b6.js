@@ -1,0 +1,2 @@
+(function() { this.JST || (this.JST = {}); this.JST["boards/index"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('\n<div class=\'container-fluid\'>\n  <div class=\'row\'>\n    <div class=\'col-md-8\'>\n      <h3>Tracked Repositories</h3>\n      <div class=\'board-index\'></div>\n      <div class=\'board-form\'></div>\n    </div>\n    <div class=\'col-md-4\'>\n      <h3>All Issues</h3>\n      <div class=\'issues-list\'></div>\n    </div>\n  </div>\n</div>\n\n');}return __p.join('');};
+}).call(this);

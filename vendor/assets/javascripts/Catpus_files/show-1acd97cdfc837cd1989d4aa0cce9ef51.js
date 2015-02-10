@@ -10,15 +10,13 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     this.issues = new Catpus.Collections.Issues();
     this.issues.fetch({ data: {board_id: this.model.id}});
     this.vents = this.repository.events();
-    this.repository.fetch({ data: {id: this.model.id}, async: true });
-    this.contributers = this.repository.contributers();
-    this.collaborators = this.repository.collaborators();
+    this.repository.fetch({ data: {id: this.model.id}} );
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addList);
     this.listenTo(this.vents, 'add', this.addEvent);
     this.listenTo(this.issues, 'add', this.addIssue);
-    this.listenTo(this.contributers, 'add', this.addContributer);
-    this.listenTo(this.collaborators, 'add', this.addCollaborator);
+    // this.listenTo(this.contributers, 'add', this.addContributer);
+    // this.listenTo(this.collaborators, 'add', this.addCollaborator);
     this.initializePusher();
     
   },
@@ -30,9 +28,6 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     this.renderForm();
     this.renderEvents();
     this.renderIssues();
-    this.renderContributers();
-    this.renderCollaborators();
-
     return this;
   },
 
@@ -50,24 +45,6 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
   renderLists: function(){
     this.model.lists().each(this.addList.bind(this));
     this.$('.list-index').sortable();
-  },
-
-  addContributer: function(contributer){
-    var view = new Catpus.Views.Contributer({model: contributer})
-    this.addSubview('.contrib-index', view)
-  },
-
-  renderContributers: function(){
-    this.contributers.each(this.addContributer.bind(this));
-  },
-
-  addCollaborator: function(collaborator){
-    var view = new Catpus.Views.Contributer({model: collaborator})
-    this.addSubview('.collab-index', view)
-  },
-
-  renderCollaborators: function(){
-    this.collaborators.each(this.addCollaborator.bind(this));
   },
 
   addMember: function(member){
@@ -101,3 +78,4 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
   }
   
 })
+;

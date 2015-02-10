@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://127.0.0.1:3500/#boards/3 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Catpus</title>
+  <link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/api-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/board-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/board_memberships-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/boards-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/boards/hooks-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/card_assignments-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/cards-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/contributer-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/header-2da8818eb6e8ac66a3fc676c13eb2d24.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/issue-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/issue_assignment-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/issues-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/list-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/repositories-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/api/tasks-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/custom-56637f151124fe4da55e223148246579.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/dashboard-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/sessions-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1">
+<link rel="stylesheet" media="all" href="http://127.0.0.1:3500/assets/application-ecc83a3126e673b679164e89ba87b69c.css?body=1">
+  <script src="./Catpus_files/jquery-87424c3c19e96d4fb033c10ebe21ec40.js"></script>
+<script src="./Catpus_files/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js"></script>
+<script src="./Catpus_files/jquery-ui.min-05605c4d153fdc1c760e49048124c327.js"></script>
+<script src="./Catpus_files/jquery.serializejson.min-41ed4228aa7b4e36f02a5cdb18b53cc8.js"></script>
+<script src="./Catpus_files/underscore-b05ce040dc8731c7266417563288c67b.js"></script>
+<script src="./Catpus_files/backbone-393a840dc90861d7b4dc2b8ddb40420f.js"></script>
+<script src="./Catpus_files/affix-31984abe1036c1c2f684af192191ce9f.js"></script>
+<script src="./Catpus_files/alert-7c03e11fecf6b3ef100f76ae4f08586e.js"></script>
+<script src="./Catpus_files/button-98bba85be4dcdd597554e0b7ce8e33a2.js"></script>
+<script src="./Catpus_files/carousel-93f34f850a932957c93b7605c79faf45.js"></script>
+<script src="./Catpus_files/collapse-7a82a3d4fb154ded3d2702465e21ca00.js"></script>
+<script src="./Catpus_files/dropdown-65c3929585250221f53bae696936ed44.js"></script>
+<script src="./Catpus_files/tab-a90a1841af8c1eae12bfa5283a8093b0.js"></script>
+<script src="./Catpus_files/transition-9e4de96204f41141474e9dbb59570af9.js"></script>
+<script src="./Catpus_files/scrollspy-e550695030be1d627d1ba91b14792316.js"></script>
+<script src="./Catpus_files/modal-ce380b9327d2cf6c826d8df818ea48a1.js"></script>
+<script src="./Catpus_files/tooltip-4d90d4ee015d2df34a7696864b2ea83c.js"></script>
+<script src="./Catpus_files/popover-5a060f876311e7fcb18f35058070de5a.js"></script>
+<script src="./Catpus_files/bootstrap-sprockets-00b1738c651720f44abc4bbf70bedb3e.js"></script>
+<script src="./Catpus_files/moment-66988874bf5714cb1e4a6f53d733b6e1.js"></script>
+<script src="./Catpus_files/pusher.min-de8cc5e5b686c88f329b0c97763f1157.js"></script>
+<script src="./Catpus_files/catpus-4112a86f823a5094af67f8b28b69259c.js"></script>
+<script src="./Catpus_files/composite_view-2d7251fa682693cb19114b1b7c1d4bfb.js"></script>
+<script src="./Catpus_files/form-5439a637161b5dccf6a16466dbb29174.js"></script>
+<script src="./Catpus_files/index-ddcf47cf26265bb2a36f6e0cc302e5b6.js"></script>
+<script src="./Catpus_files/item-8960e2f6bd1946ccea51134cf267359f.js"></script>
+<script src="./Catpus_files/show-ef3e9082c377e6734c98213d1ad06d13.js"></script>
+<script src="./Catpus_files/card-fe8ff8bb87e3926558f08e597019508f.js"></script>
+<script src="./Catpus_files/form-557149ce74d5edb0f319e3f957bd3a5d.js"></script>
+<script src="./Catpus_files/event-c25c2de4b0eea47557c81f13ce620bb0.js"></script>
+<script src="./Catpus_files/item-8ff6a097de3605dfdfc16702ae1e4b91.js"></script>
+<script src="./Catpus_files/form-5f0a4bf21afbf796e228e1ed0ab7fb86.js"></script>
+<script src="./Catpus_files/list-d0ad6e70ce33bd5a481087e681031c7e.js"></script>
+<script src="./Catpus_files/board-d5fca3d6aacc7581c0d0a1a3fd11df7a.js"></script>
+<script src="./Catpus_files/card-79f79db21bf08c7f078cba055bd11d2f.js"></script>
+<script src="./Catpus_files/event-1d4e159c2aa15672eabfd642f4c49653.js"></script>
+<script src="./Catpus_files/issue-3772176e9227a0a43dc6848fd4f4868a.js"></script>
+<script src="./Catpus_files/language-ddc5b7c587ae3725b990d7f405df348e.js"></script>
+<script src="./Catpus_files/list-226bd3ca88795da1a5cb894e408772e2.js"></script>
+<script src="./Catpus_files/repository-cbc67bdd6e701e0c454fc095413411b4.js"></script>
+<script src="./Catpus_files/task-6e577a58462260bc5d535234b1ef877e.js"></script>
+<script src="./Catpus_files/user-d1721548c9d4887f26e67b918c2c652d.js"></script>
+<script src="./Catpus_files/boards-1bc1f5ed6de7d953384cc300f7a78f8b.js"></script>
+<script src="./Catpus_files/cards-86eb07192d5201586c5e01cbe145626f.js"></script>
+<script src="./Catpus_files/events-7e8b981d1d983376a0740350d9f02c22.js"></script>
+<script src="./Catpus_files/issues-53bbaf9999b13703dccd978a5f9b2afe.js"></script>
+<script src="./Catpus_files/language-9008a781c9af02b99c67d06c862e6178.js"></script>
+<script src="./Catpus_files/lists-6b7bba6fe0b635d260ff0e10f868c40d.js"></script>
+<script src="./Catpus_files/repositories-b0a63a35f0dcc18dbef8bb28732af633.js"></script>
+<script src="./Catpus_files/tasks-e69e2d55df11bdb7c6ff3773213c5356.js"></script>
+<script src="./Catpus_files/users-1093ce7d8adc7a525b8eadb30dfbe891.js"></script>
+<script src="./Catpus_files/board-298ff8f8572628b934a5837011f2907e.js"></script>
+<script src="./Catpus_files/dashboard-ebfb047483c4b9bd62ab5948ec898203.js"></script>
+<script src="./Catpus_files/form-e4efd9925d6957e66ba4b740ca7a89a5.js"></script>
+<script src="./Catpus_files/show-1acd97cdfc837cd1989d4aa0cce9ef51.js"></script>
+<script src="./Catpus_files/card-2fdebddf21d87a053f8252aac8395db5.js"></script>
+<script src="./Catpus_files/form-42348413f69a3d09b1082f7122fa0a6a.js"></script>
+<script src="./Catpus_files/event-56c34c808c8850bd85667c2204e5b6ff.js"></script>
+<script src="./Catpus_files/issue-3db3ae9bdd00966fe6ed59d5c60f3a87.js"></script>
+<script src="./Catpus_files/form-77f8ab469522f7840afd74c7b076695c.js"></script>
+<script src="./Catpus_files/list-fcace9fc4a05f78419c4d15573b99892.js"></script>
+<script src="./Catpus_files/afterrouter-026ba98fe80a78c068adac2fb5b79186.js"></script>
+<script src="./Catpus_files/beforerouter-25b0090823318e6268a6d870403147bc.js"></script>
+<script src="./Catpus_files/issues-fcec5b5a277ac7c20cc9f45a209a3bcd.js"></script>
+<script src="./Catpus_files/repositories-fcec5b5a277ac7c20cc9f45a209a3bcd.js"></script>
+<script src="./Catpus_files/tasks-fcec5b5a277ac7c20cc9f45a209a3bcd.js"></script>
+<script src="./Catpus_files/application-020d2aed288af400bcb4a8cf08a2454f.js"></script>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="M4AsDwwjqiUudpQ7jFkqgttGf6kqZXoLb+pjfJn3GLqLsP/F30FbP/KGOcYANso5+kvx5NMdLZOLY7KZNYNV6Q==">
+</head>
+<body data-feedly-mini="yes">
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h1><a href="http://127.0.0.1:3500/#">Catpus</a></h1>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+              <li class="nav-li"><span id="username">Ashoka Finley </span></li>
+              <li class="nav-li"> <a href="http://127.0.0.1:3500/#dashboard">Dashboard</a> </li>
+              <li class="nav-li"> <form class="button_to" method="post" action="http://127.0.0.1:3500/sessions"><input type="hidden" name="_method" value="delete"><input type="submit" value="Sign Out"><input type="hidden" name="authenticity_token" value="M4AsDwwjqiUudpQ7jFkqgttGf6kqZXoLb+pjfJn3GLqLsP/F30FbP/KGOcYANso5+kvx5NMdLZOLY7KZNYNV6Q=="></form> </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  
+<div id="setting">
+  <div id="main"><div class="board-show"><h4 class="board-title"></h4>
+  <div><h4>Tracker - <span>catpus</span></h4></div>
+  <div><h5>Updated: <span>a few seconds ago</span></h5></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="list-index ui-sortable"><div class="list-display col-md-3 ui-sortable-handle"><h4 class="list-title">List # 1 <span class="delete-list glyphicon glyphicon-remove-sign"></span></h4>
+  <div class="card-index ui-sortable"><div class="card ui-sortable-handle"><h5 class="card-title">Implement Ordinal Saving <span class="delete-card glyphicon glyphicon-remove"></span></h5>
+  <div class="task-index"></div>
+</div><div class="card ui-sortable-handle"><h5 class="card-title">Add Edit to Card + List + Board <span class="delete-card glyphicon glyphicon-remove"></span></h5>
+  <div class="task-index"></div>
+</div><div class="card ui-sortable-handle"><h5 class="card-title">Implement Finished Board <span class="delete-card glyphicon glyphicon-remove"></span></h5>
+  <div class="task-index"></div>
+</div><div class="card ui-sortable-handle"><h5 class="card-title">Add Contributer to Board <span class="delete-card glyphicon glyphicon-remove"></span></h5>
+  <div class="task-index"></div>
+</div><div class="card ui-sortable-handle"><h5 class="card-title">Add Modal to Card <span class="delete-card glyphicon glyphicon-remove"></span></h5>
+  <div class="task-index"></div>
+</div><div class="card ui-sortable-handle"><h5 class="card-title">Add Task Form to Card <span class="delete-card glyphicon glyphicon-remove"></span></h5>
+  <div class="task-index"></div>
+</div><div class="card ui-sortable-handle"><h5 class="card-title">Create Faraday Middleware For Caching on Production <span class="delete-card glyphicon glyphicon-remove"></span></h5>
+  <div class="task-index"></div>
+</div><div class="card ui-sortable-handle"><h5 class="card-title">Add Organizations <span class="delete-card glyphicon glyphicon-remove"></span></h5>
+  <div class="task-index"></div>
+</div></div>
+  <div class="card-form"><form class="cardform"><input type="hidden" name="card[list_id]" value="2">
+<input type="text" id="card-title" name="card[title]" value="Add New Card">
+
+<input type="submit" class="submit" value="Add">
+</form></div>
+</div><div class="list-display col-md-3 ui-sortable-handle"><h4 class="list-title">Issues To Do <span class="delete-list glyphicon glyphicon-remove-sign"></span></h4>
+  <div class="card-index ui-sortable"><div class="card ui-sortable-handle"><h5 class="card-title">Add Ability to Add Issues <span class="delete-card glyphicon glyphicon-remove"></span></h5>
+  <div class="task-index"></div>
+</div></div>
+  <div class="card-form"><form class="cardform"><input type="hidden" name="card[list_id]" value="8">
+<input type="text" id="card-title" name="card[title]" value="Add New Card">
+
+<input type="submit" class="submit" value="Add">
+</form></div>
+</div><div class="list-display col-md-3 ui-sortable-handle"><h4 class="list-title">Events To Do <span class="delete-list glyphicon glyphicon-remove-sign"></span></h4>
+  <div class="card-index ui-sortable"><div class="card ui-sortable-handle"><h5 class="card-title">Create an event bus that has a pusher and is defined at the window level <span class="delete-card glyphicon glyphicon-remove"></span></h5>
+  <div class="task-index"></div>
+</div></div>
+  <div class="card-form"><form class="cardform"><input type="hidden" name="card[list_id]" value="10">
+<input type="text" id="card-title" name="card[title]" value="Add New Card">
+
+<input type="submit" class="submit" value="Add">
+</form></div>
+</div><div class="list-display col-md-3 ui-sortable-handle"><h4 class="list-title">User To Do <span class="delete-list glyphicon glyphicon-remove-sign"></span></h4>
+  <div class="card-index ui-sortable"></div>
+  <div class="card-form"><form class="cardform"><input type="hidden" name="card[list_id]" value="16">
+<input type="text" id="card-title" name="card[title]" value="Add New Card">
+
+<input type="submit" class="submit" value="Add">
+</form></div>
+</div><div class="list-display col-md-3 ui-sortable-handle"><h4 class="list-title">Css To Do <span class="delete-list glyphicon glyphicon-remove-sign"></span></h4>
+  <div class="card-index ui-sortable"></div>
+  <div class="card-form"><form class="cardform"><input type="hidden" name="card[list_id]" value="17">
+<input type="text" id="card-title" name="card[title]" value="Add New Card">
+
+<input type="submit" class="submit" value="Add">
+</form></div>
+</div></div>
+      <div class="list-form"><form class="list-form"><input type="hidden" name="list[board_id]" value="3">
+<input type="text" id="list-title" name="list[title]" value="Add New List">
+<input type="submit" class="submit" value="Add">
+</form></div>
+    </div>
+    <div class="col-md-3">
+      <h3 class="issue-title">Issues</h3>
+      <ul class="issue-index"></ul>
+      <h3>Events</h3>
+      <ul class="event-index"><li><p>IssuesEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p> </p>
+<p>a few seconds ago </p>
+</li><li><p>IssuesEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p> </p>
+<p>a few seconds ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Add Open Issues to Sidebar </p>
+<p>17 hours ago </p>
+</li><li><p>IssuesEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p> </p>
+<p>a few seconds ago </p>
+</li><li><p>IssuesEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p> </p>
+<p>a few seconds ago </p>
+</li><li><p>IssuesEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p> </p>
+<p>a few seconds ago </p>
+</li><li><p>IssuesEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p> </p>
+<p>a few seconds ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Css Changes </p>
+<p>18 hours ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Add Assignee to Card </p>
+<p>19 hours ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Add Delete to Card + List </p>
+<p>a day ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Start Css </p>
+<p>2 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Fixed Delete Post </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Start Modal </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Added Tasks Model </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Failed Subview Implementation </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Subview Update </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Change Pusher Config </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Try Again </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Add Pusher to Card </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Change Listeners </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Sweet </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Wow </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Pusher test </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Pusher test </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Changed Pusher Listeners" </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Ngrok test </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Changed new to index </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Added Route For Lists </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Ngrok </p>
+<p>3 days ago </p>
+</li><li><p>PushEvent</p>
+<p><span><img class="thumbnail" src="./Catpus_files/5394790"> </span>shkfnly</p>
+<p>Ngrok test </p>
+<p>3 days ago </p>
+</li></ul>
+      <div class="member-index"></div>
+      <div class="collaborator-index"></div>
+      <div class="contributer-index"></div>
+    </div>
+  </div>
+  <div class="row">
+
+  </div>
+</div>
+</div></div>
+</div>
+<div id="footer">
+</div>
+
+<script>
+//<![CDATA[
+
+  $(function(){
+    window.current_user_id = 1
+    Catpus.initialize('after')
+    window.pusher = new Pusher("edff1e92c04899ef664d")
+    
+
+
+  });
+
+//]]>
+</script>
+
+
+
+
+<div id="feedly-mini" title="feedly Mini tookit"></div></body></html>

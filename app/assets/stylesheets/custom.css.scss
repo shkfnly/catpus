@@ -6,6 +6,13 @@
   width: 40px;
   margin: 0;
   display: inline;
+  padding: 0;
+}
+
+.contrib-icon{
+  height: 40px;
+  width: 40px;
+  display: inline;
 }
 
 .list-form {
@@ -21,20 +28,47 @@
   overflow: auto;
 }
 
-  .nav-li {
-    a{
-      padding: 0 !important;
-    }
-  }
+.row-fluid{
+  white-space: nowrap;
+  overflow-x: auto;
+}
 
-  .nav-li {
+.issue-index{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.event-index{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.contrib-index{
+  list-style-type: none;
+  padding-left: 0;
+  max-height: 240px;
+  overflow: auto;
+}
+
+.collab-index{
+  max-height: 240px;
+  overflow: auto;
+}
+
+.nav-li {
+  a{
     padding: 0 !important;
   }
+}
 
-  .container-fluid {
-    height: 40px;
-  }
+.nav-li {
+  padding: 0 !important;
+}
 
-  .navbar-header {
-    height: 45px;
-  }
+.container-fluid {
+  height: 40px;
+}
+
+.navbar-header {
+  height: 45px;
+}

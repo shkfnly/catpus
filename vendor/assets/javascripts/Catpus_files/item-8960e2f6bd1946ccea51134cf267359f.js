@@ -1,0 +1,2 @@
+(function() { this.JST || (this.JST = {}); this.JST["boards/item"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('\n<h4 class=\'board-title\'>\n  <div>',  board.escape('title') ,' - <span>',  board.escape('repository_name') ,'</span></div>\n  <div>Updated: <span>',  moment(board.get('pushed_at')).fromNow() ,'</span></div>\n</h4>\n');}return __p.join('');};
+}).call(this);

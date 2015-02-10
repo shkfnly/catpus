@@ -1,0 +1,2 @@
+(function() { this.JST || (this.JST = {}); this.JST["issues/item"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('\n<a href=',  issue.get('html_url') ,'<h6>',  issue.get('title') ,'</h6></a> <span class=\'close-issue glyphicon glyphicon-ok\'></span>\n<p><img class=\'thumbnail\' src=',  issue.get('avatar_url') ,' /> ',  issue.get('username') ,'</p>\n<p>',  issue.get('body') ,'</p>\n');}return __p.join('');};
+}).call(this);

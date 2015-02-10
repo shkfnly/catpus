@@ -1,0 +1,2 @@
+(function() { this.JST || (this.JST = {}); this.JST["events/event"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<p>',  vent.get('type') ,'</p>\n<p><span><img class=\'thumbnail\' src=',  vent.get('actor_gravatar') ,' /> </span>',  vent.get('actor') ,'</p>\n<p>',  vent.get('message') ,' </p>\n<p>',  moment(vent.get('created_at')).fromNow() ,' </p>\n');}return __p.join('');};
+}).call(this);

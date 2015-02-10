@@ -10,13 +10,7 @@ Catpus.Views.Event = Backbone.View.extend({
     var content = this.template({vent: this.model});
     this.$el.html(content);
     return this;
-  },
-
-  initializePusher: function(){
-    this.channel = pusher.subscribe('boards');
-    this.channel.bind('webhook-push', function(data){
-      this.model.fetch();
-    }.bind(this));
   }
 
 })
+;

@@ -45,15 +45,6 @@ class ApplicationController < ActionController::Base
     current_client.repositories.each do |repository|
       repo = Repository.find_by(github_id: repository.id)
       unless repo
-      #   repo.update( 
-      #               user_id: current_user.id, 
-      #               name: repository.name, 
-      #               description: repository.description,
-      #               url: repository.url,
-      #               html_url: repository.html_url,
-      #               pushed_at: repository.pushed_at,
-      #               full_name: repository.full_name)
-      # else
         Repository.create(github_id: repository.id,
                           user_id: current_user.id, 
                           name: repository.name, 
