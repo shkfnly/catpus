@@ -10,13 +10,12 @@ Catpus.Views.Dashboard = Backbone.CompositeView.extend({
 
   initialize: function(){
     this.collection = this.model.boards();
+    this.issues = this.model.issues();
     // this.listenTo(this.model, 'sync', this.render);
     // I am curious about these two listenTos below
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addBoard);
-    // this.collection.each(function(board){
-    //   this.addBoard(board)
-    // }.bind(this));
+    this.listenTo(this.issues, 'add', this.addIssue);
     this.initializePusher();
   },
 
@@ -24,8 +23,24 @@ Catpus.Views.Dashboard = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
     this.renderBoards();
-    this.attachSubviews();
+    this.renderIssues();
+    this.renderForm();
+
     return this;
+  },
+
+  renderForm: function(){
+    var form = new Catpus.Views.BoardForm({ user: this.model });
+    this.addSubview('.board-form', form);
+  },
+
+  addIssue: function(issue) {
+    var view = new Catpus.Views.Issue({model: issue});
+    this.addSubview('.issues-list', view);
+  },
+
+  renderIssues: function(){
+    this.issues.each(this.addIssue.bind(this));
   },
 
   addBoard: function(board){

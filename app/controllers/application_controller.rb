@@ -44,16 +44,16 @@ class ApplicationController < ActionController::Base
   def cache_repositories
     current_client.repositories.each do |repository|
       repo = Repository.find_by(github_id: repository.id)
-      if repo
-        repo.update( 
-                    user_id: current_user.id, 
-                    name: repository.name, 
-                    description: repository.description,
-                    url: repository.url,
-                    html_url: repository.html_url,
-                    pushed_at: repository.pushed_at,
-                    full_name: repository.full_name)
-      else
+      unless repo
+      #   repo.update( 
+      #               user_id: current_user.id, 
+      #               name: repository.name, 
+      #               description: repository.description,
+      #               url: repository.url,
+      #               html_url: repository.html_url,
+      #               pushed_at: repository.pushed_at,
+      #               full_name: repository.full_name)
+      # else
         Repository.create(github_id: repository.id,
                           user_id: current_user.id, 
                           name: repository.name, 
@@ -69,17 +69,16 @@ class ApplicationController < ActionController::Base
   def cache_issues
     current_client.issues(nil, {:filter => "subscribed", :state => "open"}).each do |issue|
       iss = Issue.find_by(github_id: issue.id)
-      if iss 
-        iss.update(
-                     url: issue.url,
-                     html_url: issue.html_url,
-                     number: issue.number,
-                     title: issue.title,
-                     body: issue.body,
-                     user_id: current_user.id,
-                     username: current_user.username,
-                     )
-      else
+      unless iss 
+        # iss.update(
+                     # url: issue.url,
+                     # html_url: issue.html_url,
+                     # number: issue.number,
+                     # title: issue.title,
+                     # body: issue.body,
+                     # user_id: current_user.id,
+                     # username: current_user.username,
+                     # )
         Issue.create(
                      github_id: issue.id,
                      url: issue.url,
@@ -89,8 +88,10 @@ class ApplicationController < ActionController::Base
                      body: issue.body,
                      user_id: current_user.id,
                      username: issue.user.login,
+                     avatar_url: issue.user.avatar_url,
+                     user_url: issue.user.html_url,
                      repository_id: issue.repository.id,
-                     repository_name: issue.repository.name
+                     repository_name: issue.repository.full_name
                      )
       end
     end

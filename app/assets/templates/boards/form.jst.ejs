@@ -3,7 +3,7 @@
 <input type='text' id='board-title' name= "board[title]" value='Add New Board' />
 <select>
   <% repositories.each(function(repository){ %>
-    <option value = "<%= repository.get('url')  + '=' + repository.id + '=' + repository.get('pushed_at') + '=' + repository.get('name') %>"> <%= repository.get('name') %> </option>
+    <option value = "<%= repository.get('url')  + '=' + repository.id + '=' + repository.get('pushed_at') + '=' + repository.get('name') + '=' + repository.get('full_name') %>"> <%= repository.get('name') %> </option>
   <% }) %>
 </select>
 <input type='submit' class='submit' value='Submit'>

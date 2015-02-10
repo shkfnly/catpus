@@ -6,22 +6,6 @@ json.contributers current_client.contribs(@repository.full_name)
 json.assignees current_client.repo_assignees(@repository.full_name)
 json.branches current_client.branches(@repository.full_name)
 
-json.issues current_client.list_issues(@repository.full_name) do |issue|
-  json.github_id issue.id
-  json.number issue.number
-  json.repository_name @repository.full_name
-  json.repository_id @repository.id
-  json.url issue.url
-  json.html_url issue.html_url
-  json.number issue.number
-  json.title issue.title
-  json.body issue.body
-  json.user_id issue.user.id
-  json.username issue.user.login
-  json.avatar_url issue.user.avatar_url
-  json.html_url issue.user.html_url
-end
-
 json.events current_client.repository_events(@repository.full_name) do |event|
   json.type event.type
   json.actor event.actor.login

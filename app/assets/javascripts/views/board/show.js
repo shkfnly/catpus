@@ -7,19 +7,16 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     this.collection = this.model.lists();
     this.members = this.model.members();
     this.repository = this.model.repository();
-    this.issues = this.repository.issues();
+    this.issues = new Catpus.Collections.Issues();
+    this.issues.fetch({ data: {board_id: this.model.id}});
     this.vents = this.repository.events();
     this.repository.fetch({ data: {id: this.model.id}} );
     this.listenTo(this.model, 'sync', this.render);
-    // this.listenTo(this.collection, 'change sync', this.render);
     this.listenTo(this.collection, 'add', this.addList);
     this.listenTo(this.vents, 'add', this.addEvent);
     this.listenTo(this.issues, 'add', this.addIssue);
     // this.listenTo(this.contributers, 'add', this.addContributer);
     // this.listenTo(this.collaborators, 'add', this.addCollaborator);
-    // this.collection.each(function(list){
-    //   this.addList(list);
-    // }.bind(this));
     this.initializePusher();
     
   },

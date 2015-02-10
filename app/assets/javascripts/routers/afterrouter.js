@@ -12,24 +12,12 @@ Catpus.Routers.AfterRouter = Backbone.Router.extend({
   },
 
   Dashboard: function(){
-    // Catpus.Collections.boards.fetch();
     this.model.fetch({success: function(){
       var view = new Catpus.Views.Dashboard({ 
         model: this.model,
         collection: this.model.boards()
       });
       this._swapView(view);
-
-      //incorporate these too into the dashboard view to simplify
-      var issues = new Catpus.Views.IssueIndex({
-        model: this.model,
-        collection: this.model.issues()
-      });
-
-      this.$rootEl.append(issues.render().$el);
-      var form = new Catpus.Views.BoardForm({ user: this.model, 
-                                               });
-       this.$rootEl.append(form.render().$el);
     }.bind(this)}) 
   },
 

@@ -17,16 +17,14 @@ Catpus.Views.Issue = Backbone.View.extend({
 
   closeIssue: function(event) {
     event.preventDefault();
-    $.ajax({
-      url: 'api/issues/1', 
-      type: 'DELETE', 
+    this.model.destroy({
       data: {
-        github_id: this.model.get('number'),
+        number: this.model.get('number'),
         repository: this.model.get('repository_name')
-      }
-    });
-
-    this.model.destroy()
+      },
+      processData: true,
+      wait: true 
+    }); 
     this.remove();
   }
 })
