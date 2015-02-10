@@ -1,6 +1,11 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
+#catpus-icon {
+  margin-top: 3px;
+}
+
 .thumbnail {
   height: 40px;
   width: 40px;
@@ -14,6 +19,7 @@
   width: 40px;
   display: inline;
 }
+
 
 .list-form {
   margin-top: 10px;
@@ -46,7 +52,7 @@
 .contrib-index{
   list-style-type: none;
   padding-left: 0;
-  height: 240px;
+  max-height: 240px;
   overflow: auto;
 }
 
@@ -65,9 +71,7 @@
   padding: 0 !important;
 }
 
-.container-fluid {
-  height: 40px;
-}
+
 
 .navbar-header {
   height: 45px;

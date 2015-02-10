@@ -17,7 +17,9 @@ Catpus.Views.Card = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click .delete-card' : 'deleteCard'
+    'click .delete-card' : 'deleteCard',
+    'click .edit-card' : 'renderEditCard',
+    'click' : 'renderModal'
   },
 
   render: function(){
@@ -36,7 +38,15 @@ Catpus.Views.Card = Backbone.CompositeView.extend({
   deleteCard: function(){
     this.model.destroy({wait: true})
     this.remove();
-  }
+  },
+
+  renderEditCard: function(event){
+    event.preventDefault();
+    var view = new Catpus.Views.CardEditForm({model: this.model})
+    $(event.target.parentElement).html(view.render().$el)
+  },
+
+  renderModal: function(){}
 
 
 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api,
    defaults: { format: :json } do
-    resources :boards, except: [:edit, :update] do
+    resources :boards do
       resources :hooks, only: [:create, :update, :destroy]
     end
     resources :lists, only: [:index, :show, :create, :update, :destroy]

@@ -3,7 +3,8 @@ Catpus.Views.BoardForm = Backbone.View.extend({
   tagName: 'form',
   className: 'board-form',
   events: {
-    'submit': 'submit'
+    'submit': 'submit',
+    'click #board-title' : 'formClear'
   },
   
   initialize: function(options){
@@ -18,6 +19,10 @@ Catpus.Views.BoardForm = Backbone.View.extend({
     var content = this.template({user: this.user, model: this.model, repositories: this.repositories})
     this.$el.html(content);
     return this;
+  },
+
+  formClear: function(event){
+    $(event.target).val('');
   },
 
   submit: function(event){

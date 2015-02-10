@@ -4,12 +4,17 @@ Catpus.Views.CardForm = Backbone.View.extend({
   className: 'cardform',
 
   events: {
-    'submit' : 'cardCreate'
+    'submit' : 'cardCreate',
+    'click #card-title' : 'formClear'
   },
 
   initialize: function(options){
     this.list = options.list;
     this.model = new Catpus.Models.Card();
+  },
+
+  formClear: function(event){
+    $(event.target).val('');
   },
 
   render: function(){

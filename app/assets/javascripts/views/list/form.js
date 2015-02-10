@@ -3,7 +3,8 @@ Catpus.Views.ListForm = Backbone.View.extend({
   tagName: 'form',
   className: 'list-form',
   events: {
-    'submit' : 'listCreate'
+    'submit' : 'listCreate',
+    'click #list-title' : 'formClear'
   },
 
   initialize: function(options){
@@ -15,6 +16,10 @@ Catpus.Views.ListForm = Backbone.View.extend({
     var content = this.template({model: this.model});
     this.$el.html(content);
     return this;
+  },
+
+  formClear: function(event){
+    $(event.target).val('');
   },
 
   listCreate: function(event){

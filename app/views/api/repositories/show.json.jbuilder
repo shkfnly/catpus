@@ -21,10 +21,12 @@ json.events current_client.repository_events(@repository.full_name) do |event|
   json.actor_gravatar event.actor.avatar_url
   if event.type == "IssuesEvent"
     json.created_at event.closed_at
-  else
+  elsif event.type == "PushEvent"
     json.author event.payload.commits[0].author.name
     json.message event.payload.commits[0].message
     json.url event.payload.commits[0].url
     json.created_at event.created_at
+  elsif event.type == "CreateEvent"
+
   end
 end

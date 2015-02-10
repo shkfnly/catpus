@@ -4,12 +4,13 @@ Catpus.Views.List = Backbone.CompositeView.extend({
   className: 'list-display col-md-3',
 
   events: {
-    'click .delete-list' : 'deleteList'
+    'click .delete-list' : 'deleteList',
+    'click .edit-list' : 'renderEditList',
   },
 
   initialize: function(){
     this.collection = this.model.cards();
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync change', this.render);
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addCard);
     this.initializePusher();
@@ -50,18 +51,13 @@ Catpus.Views.List = Backbone.CompositeView.extend({
   deleteList: function(){
     this.model.destroy({wait: true})
     this.remove();
+  },
+
+  renderEditList: function(event){
+    event.preventDefault();
+    var view = new Catpus.Views.ListEditForm({model: this.model})
+    $(event.target.parentElement).html(view.render().$el)
   }
 
-//   sucess: function(){
-//   _(this.subviews('.card-index')).each(function(subview){
-//     this.removeSubview('.card-index', subview);
-//   }.bind(this))
-
-//   this.collection.each(function(card){
-
-//     this.addCard(card);
-//   }.bind(this))
-// }.bind(this),
-// ,
 
 })

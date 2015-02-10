@@ -23,6 +23,15 @@ class Api::BoardsController < Api::ApiController
     end
   end
 
+  def update
+    @board = Board.find(params[:id])
+    if @board.update_attributes(board_params)
+      render json: @board
+    else
+      render json: @board.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @board = current_user.boards.find(params[:id])
     @board.destroy

@@ -3,6 +3,10 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
 
   className: 'board-show',
 
+  events: {
+    'click .edit-board' : 'renderEditBoard',
+  },
+
   initialize: function(){
     this.collection = this.model.lists();
     this.members = this.model.members();
@@ -90,6 +94,12 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
 
   renderIssues: function(){
     this.issues.each(this.addIssue.bind(this));
+  },
+
+  renderEditBoard: function(event){
+    event.preventDefault();
+    var view = new Catpus.Views.BoardEditForm({model: this.model})
+    $(event.target.parentElement).html(view.render().$el)
   },
 
   initializePusher: function(){
