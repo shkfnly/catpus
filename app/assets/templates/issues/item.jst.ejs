@@ -1,4 +1,4 @@
 
-<a href=<%= issue.get('html_url') %><h6><%= issue.get('title') %></h6></a>
-<p><img class='thumbnail' src=<%= issue.get('avatar_url') %> /> <%= issue.get('login') %></p>
+<a href=<%= issue.get('html_url') %><h6><%= issue.get('title') %></h6></a> <span class='close-issue glyphicon glyphicon-ok'></span>
+<p><img class='thumbnail' src=<%= issue.get('avatar_url') %> /> <%= issue.get('username') %></p>
 <p><%= issue.get('body') %></p>

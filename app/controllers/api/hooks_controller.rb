@@ -4,7 +4,7 @@ class Api::HooksController < Api::ApiController
   
   def create
     board = Board.find(params[:board_id])
-    unless params[:zen]
+    unless params[:zen] || params[:issue]
       card = board.cards.find_by(title: params[:head_commit][:message])
       if card
         card.destroy
