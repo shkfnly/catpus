@@ -23,12 +23,13 @@ class UsersController < ApplicationController
       @user = User.create({uid: @user_attribs.id,
                             name: @user_attribs.name,
                             email: @user_attribs.email,
-                            username: @user_attribs.login
+                            username: @user_attribs.login,
+                            avatar_url: @user_attribs.avatar_url
                             })
     end
     board = Board.find_by(repository_id: params[:user][:repository_id])
     BoardMembership.create({user_id: @user.id, board_id: board.id})
-    current_client.add_collab(params[:user][:repository_name], @user.username)
+    result = current_client.add_collab(params[:user][:repository], @user.username)
     render json: @user
   end
 

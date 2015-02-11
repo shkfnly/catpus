@@ -34,7 +34,8 @@ Catpus.Views.IssueForm = Backbone.View.extend({
         this.collection.add(this.model)
       }.bind(this)
     })
-    this.remove();
     $(event.target.previousSibling).prop("disabled", false)
+    this.remove();
+    
   }
 })

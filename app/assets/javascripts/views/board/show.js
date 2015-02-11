@@ -115,7 +115,7 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     event.preventDefault();
     $(event.target.parentElement).prop("disabled", true)
     var view = new Catpus.Views.CollabForm({repository: this.repository, collection: this.collaborators})
-    $(event.target).after(view.render().$el)
+    $(event.target.parentElement).after(view.render().$el)
   },
 
 
