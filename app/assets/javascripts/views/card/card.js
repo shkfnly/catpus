@@ -1,6 +1,6 @@
 Catpus.Views.Card = Backbone.CompositeView.extend({
   template: JST['cards/card'],
-  className: 'card',
+  className: 'card card-display',
 
   initialize: function(){
     this.collection = this.model.tasks();
@@ -22,11 +22,17 @@ Catpus.Views.Card = Backbone.CompositeView.extend({
     'click' : 'renderModal'
   },
 
+  attributes: function() {
+    return {
+      'data-card-id': this.model.id,
+      'data-card-title' : this.model.get('title')
+    };
+  },
+
   render: function(){
     var content = this.template({card: this.model});
     this.$el.html(content);
     this.attachSubviews();
-
     return this;
   },
 
@@ -46,8 +52,10 @@ Catpus.Views.Card = Backbone.CompositeView.extend({
     $(event.target.parentElement).html(view.render().$el)
   },
 
-  renderModal: function(){}
-
-
-
-})
+  renderModal: function(){
+    // this.modalView = this.modalView ||
+    //   new TrelloClone.Views.CardModal({ model: this.model });
+    // $('body').prepend(this.modalView.render().$el);
+    // this.modalView.delegateEvents();
+  },
+});

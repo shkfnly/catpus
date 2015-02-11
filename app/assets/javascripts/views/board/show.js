@@ -1,9 +1,16 @@
 Catpus.Views.BoardShow = Backbone.CompositeView.extend({
   template: JST['boards/show'],
 
-  className: 'board-show',
+  className: 'board-show clearfix',
+
+  orderOptions: {
+    modelElement: '.list-display',
+    modelName: 'list',
+    subviewContainer: '.list-index'
+  },
 
   events: {
+    'sortstop' : 'saveOrds',
     'click .edit-board' : 'renderEditBoard',
     'click .issue-button' : 'renderIssueForm',
     'click .collab-button' : 'renderCollabForm'
@@ -27,7 +34,6 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     this.listenTo(this.contributers, 'add', this.addContributer);
     this.listenTo(this.collaborators, 'add', this.addCollaborator);
     this.initializePusher();
-    
   },
 
   render: function(){
@@ -119,8 +125,6 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     $(event.target.parentElement).after(view.render().$el)
   },
 
-
-
   initializePusher: function(){
     this.channel = pusher.subscribe('boards');
     this.channel.bind('webhook-push', function(data){
@@ -128,5 +132,6 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
       this.collection.fetch({data: {board_id: this.model.id}});
     }.bind(this));
   }
-  
-})
+});
+
+_.extend(Catpus.Views.BoardShow.prototype, Catpus.Utils.OrdView);

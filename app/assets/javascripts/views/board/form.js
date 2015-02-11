@@ -42,5 +42,4 @@ Catpus.Views.BoardForm = Backbone.View.extend({
     })
     this.$('#board-title').val('');
   }
-
-})
+});

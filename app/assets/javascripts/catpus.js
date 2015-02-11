@@ -3,6 +3,7 @@ window.Catpus = {
   Collections: {},
   Views: {},
   Routers: {},
+  Utils: {},
   initialize: function(authType) {
     if(authType == 'before'){
       new Catpus.Routers.BeforeRouter();

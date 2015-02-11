@@ -22,4 +22,4 @@ Catpus.Views.CardEditForm = Backbone.View.extend({
     this.model.save(data, {})
     this.remove();
   },
-})
+});

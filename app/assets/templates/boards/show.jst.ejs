@@ -1,13 +1,14 @@
-<h4 class='board-title'></h4>
+<div class'board-show-header'>
   <div><h4><%= board.escape('title') %> - <span><%= board.escape('repository_name') %></span> <span class='edit-board glyphicon glyphicon-pencil'></h4></div>
   <div><h5>Updated: <em><span><%= moment(board.get('pushed_at')).fromNow() %></span></h5></em></div>
-<div class='container-fluid'>
-  <div class='row'>
-    <div class='col-md-9 lists'>
+</div>
+
+<div class='container-fluid canvas'>
+    <div class='list-window'>
       <div class='list-index'></div>
       <div class='list-form'></div> 
     </div>
-    <div class='col-md-3'>
+    <div class='col-md-3 col-md-offset-9'>
       <h3 class='issue-title'>Issues <button class='issue-button'><span style='size: 10px;' class='add-issue glyphicon glyphicon-plus'></button></span></h3>
       <ul class='issue-index'></ul>
       <h3>Collaborators <button class='collab-button'><span style='size: 10px;' class='add-collab glyphicon glyphicon-plus'></span></button></h3>
@@ -19,5 +20,4 @@
       <div class='member-index'></div>
       <div class='collaborator-index'></div>
     </div>
-  </div>
 </div>

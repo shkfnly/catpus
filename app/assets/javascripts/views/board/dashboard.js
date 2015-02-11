@@ -74,5 +74,5 @@ Catpus.Views.Dashboard = Backbone.CompositeView.extend({
       this.collection.fetch({data: {user_id: this.model.id}});
     }.bind(this));
   }
-})
+});
 

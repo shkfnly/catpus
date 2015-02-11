@@ -1,11 +1,19 @@
 Catpus.Views.List = Backbone.CompositeView.extend({
+  orderOptions: {
+    modelElement: '.card-display',
+    modelName: 'card',
+    subviewContainer: '.card-index'
+  },
 
   template: JST['lists/list'],
-  className: 'list-display col-md-3',
+  className: 'list-display',
 
   events: {
     'click .delete-list' : 'deleteList',
     'click .edit-list' : 'renderEditList',
+    'sortreceive' : 'receiveCard',
+    'sortremove' : 'removeCard',
+    'sortstop' : 'saveCards'
   },
 
   initialize: function(){
@@ -19,6 +27,7 @@ Catpus.Views.List = Backbone.CompositeView.extend({
   render: function(){
     var content = this.template({list: this.model});
     this.$el.html(content);
+    this.$el.data('list-id', this.model.id)
     this.renderForm();
     this.renderCards();
     return this;
@@ -33,6 +42,39 @@ Catpus.Views.List = Backbone.CompositeView.extend({
     
     var view = new Catpus.Views.Card({model: card});
     this.addSubview('.card-index', view);
+  },
+
+  receiveCard: function(event, ui) {
+    var $cardDisplay = ui.item,
+        cardTitle = $cardDisplay.data('card-title'),
+        cardId = $cardDisplay.data('card-id'),
+        newOrd = $cardDisplay.index();
+    var cardClone = new Catpus.Models.Card({
+      title: cardTitle,
+      id: cardId,
+      list_id: this.model.id,
+      ord: newOrd
+    });
+    cardClone.save();
+    this.collection.add(cardClone, {silent: true});
+    this.saveCards(event);
+  },
+
+  removeCard: function(event, ui) {
+    var $cardDisplay = ui.item,
+        cardId = $cardDisplay.data('card-id'),
+        cards = this.model.cards(),
+        cardToRemove = cards.get(cardId),
+        cardSubviews = this.subviews('.list-cards');
+    cards.remove(cardToRemove);
+
+    var subviewToRemove = _.findWhere(cardSubviews, {model: cardToRemove});
+    cardSubviews.splice(cardSubviews.indexOf(subviewToRemove), 1);
+  },
+
+  saveCards: function(event) {
+    event.stopPropagation();
+    this.saveOrds();
   },
 
   renderCards: function(){
@@ -58,6 +100,6 @@ Catpus.Views.List = Backbone.CompositeView.extend({
     var view = new Catpus.Views.ListEditForm({model: this.model})
     $(event.target.parentElement).html(view.render().$el)
   }
+});
 
-
-})
+_.extend(Catpus.Views.List.prototype, Catpus.Utils.OrdView);

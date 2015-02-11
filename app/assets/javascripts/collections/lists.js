@@ -6,4 +6,4 @@ Catpus.Collections.Lists = Backbone.Collection.extend({
   initialize: function(models, options) {
     this.board = options.board;
   }
-});1
+});

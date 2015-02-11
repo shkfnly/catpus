@@ -20,4 +20,4 @@ Catpus.Views.Board = Backbone.View.extend({
     event.stopPropagation();
     Backbone.history.navigate('boards/' + this.model.id, {trigger: true})
   }
-})
+});
