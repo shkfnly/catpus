@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :repositories
   has_many :issues
   has_many :board_memberships
-  has_many :contrib_boards, through: :board_membership
+  has_many :contrib_boards, through: :board_memberships, source: :board
   has_many :tasks
   
   attr_reader :password

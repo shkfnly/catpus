@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   end
 
   def cache_repositories
-    current_client.repositories.each do |repository|
+    current_client.repositories(current_user.username, {:per_page => 200}).each do |repository|
       repo = Repository.find_by(github_id: repository.id)
       unless repo
         Repository.create(github_id: repository.id,

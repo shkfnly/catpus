@@ -14,3 +14,16 @@ json.issues current_client.list_issues(@repository.full_name) do |issue|
   json.avatar_url issue.user.avatar_url
   json.user_url issue.user.html_url
 end
+
+
+
+
+json.boards @user.boards do |board|
+  json.id board.id
+  json.user_id board.user_id
+  json.title board.title
+  json.url board.repository_url
+  json.repository_id board.repository_id
+  json.pushed_at board.pushed_at
+  json.repository_name board.repository_name
+end

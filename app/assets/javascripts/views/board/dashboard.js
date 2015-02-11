@@ -19,6 +19,7 @@ Catpus.Views.Dashboard = Backbone.CompositeView.extend({
     // I am curious about these two listenTos below
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addBoard);
+    // this.listenTo(this.contribBoards, 'add', this.addContrib);
     this.listenTo(this.issues, 'add', this.addIssue);
     this.initializePusher();
   },
@@ -54,7 +55,12 @@ Catpus.Views.Dashboard = Backbone.CompositeView.extend({
 
   addBoard: function(board){
     var view = new Catpus.Views.Board({model: board});
-    this.addSubview('.board-index', view);
+    if (board.get('user_id') != current_user_id){
+      this.addSubview('.contrib-board-index', view);
+    }
+    else{
+      this.addSubview('.board-index', view);
+    }
   },
 
   renderBoards: function(){
