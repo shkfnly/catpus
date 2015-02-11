@@ -3,7 +3,8 @@ Catpus.Views.ListEditForm = Backbone.View.extend({
   tagName: 'form',
   className: 'list-edit-form',
   events: {
-    'blur #list-edit-title' : 'listEdit'
+    'blur #list-edit-title' : 'listEdit',
+    'submit' : 'listEdit'
   },
 
   initialize: function(options){

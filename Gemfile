@@ -57,7 +57,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'annotate'
-
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

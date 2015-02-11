@@ -16,9 +16,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user_attribs = current_client.user(params[:user][:login])
+    login = params[:user][:login]
+    repo = params[:user][:repository]
+    @user_attribs = current_client.user(login)
     render json: {} unless @user_attribs
-    @user = User.find_by(username: params[:user][:login])
+    @user = User.find_by(username: login)
     unless @user
       @user = User.create({uid: @user_attribs.id,
                             name: @user_attribs.name,
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
     end
     board = Board.find_by(repository_id: params[:user][:repository_id])
     BoardMembership.create({user_id: @user.id, board_id: board.id})
-    result = current_client.add_collab(params[:user][:repository], @user.username)
+    current_client.add_collab(repo, @user.username) unless current_client.collaborator?(repo, @user.username)
     render json: @user
   end
 
