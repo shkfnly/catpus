@@ -5,7 +5,8 @@ Catpus.Views.Issue = Backbone.View.extend({
     'click .close-issue' : 'closeIssue'
   },
 
-  initialize: function(){
+  initialize: function(options){
+
     this.listenTo(this.model, 'change sync add', this.render);
   },
 

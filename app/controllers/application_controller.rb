@@ -61,15 +61,6 @@ class ApplicationController < ActionController::Base
     current_client.issues(nil, {:filter => "subscribed", :state => "open"}).each do |issue|
       iss = Issue.find_by(github_id: issue.id)
       unless iss 
-        # iss.update(
-                     # url: issue.url,
-                     # html_url: issue.html_url,
-                     # number: issue.number,
-                     # title: issue.title,
-                     # body: issue.body,
-                     # user_id: current_user.id,
-                     # username: current_user.username,
-                     # )
         Issue.create(
                      github_id: issue.id,
                      url: issue.url,

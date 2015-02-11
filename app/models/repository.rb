@@ -3,5 +3,9 @@ class Repository < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :board
-  has_many :issues
+  has_many(
+            :issues,
+            :class_name => "Issue",
+            :foreign_key => :repository_id,
+            :primary_key => :github_id)
 end

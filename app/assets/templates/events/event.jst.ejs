@@ -1,4 +1,4 @@
 <p><%= vent.get('type') %></p>
 <p><span><img class='thumbnail' src=<%= vent.get('actor_gravatar') %> /> </span><%= vent.get('actor') %></p>
 <p><%= vent.get('message') %> </p>
-<p><%= moment(vent.get('created_at')).fromNow() %> </p>
+<em><p><%= moment(vent.get('created_at')).fromNow() %> </p></em>

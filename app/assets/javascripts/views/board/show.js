@@ -5,6 +5,8 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
 
   events: {
     'click .edit-board' : 'renderEditBoard',
+    'click .issue-button' : 'renderIssueForm',
+    'click .collab-button' : 'renderCollabForm'
   },
 
   initialize: function(){
@@ -101,6 +103,21 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     var view = new Catpus.Views.BoardEditForm({model: this.model})
     $(event.target.parentElement).html(view.render().$el)
   },
+
+  renderIssueForm: function(event){
+    event.preventDefault();
+    $(event.target.parentElement).prop("disabled", true)
+    var view = new Catpus.Views.IssueForm({repository: this.repository, collection: this.issues})
+    $(event.target.parentElement).after(view.render().$el)
+  },
+
+  renderCollabForm: function(event){
+    event.preventDefault();
+    var view = new Catpus.Views.CollabForm({collection: this.collaborators})
+    $(event.target).after(view.render().$el)
+  },
+
+
 
   initializePusher: function(){
     this.channel = pusher.subscribe('boards');

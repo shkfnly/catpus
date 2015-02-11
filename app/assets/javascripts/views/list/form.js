@@ -25,7 +25,7 @@ Catpus.Views.ListForm = Backbone.View.extend({
   listCreate: function(event){
     event.preventDefault();
     var data = $(event.target).serializeJSON();
-    this.model = new Catpus.Models.List()
+    this.model = new Catpus.Models.List();
     this.model.save(data, {
       success: function(){
         this.collection.add(this.model);

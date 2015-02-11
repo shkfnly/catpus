@@ -10,7 +10,6 @@ Catpus.Views.CardForm = Backbone.View.extend({
 
   initialize: function(options){
     this.list = options.list;
-    this.model = new Catpus.Models.Card();
   },
 
   formClear: function(event){
@@ -26,7 +25,9 @@ Catpus.Views.CardForm = Backbone.View.extend({
 
   cardCreate: function(event){
     event.preventDefault();
+    this.$('button').prop("disabled", true)
     var data = $(event.target).serializeJSON();
+    this.model = new Catpus.Models.Card();
     this.model.save(data, {
       success: function(){
         this.collection.add(this.model);
