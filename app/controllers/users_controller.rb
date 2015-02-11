@@ -15,6 +15,21 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def create
+    @user_attribs = current_client.user(params[:user][:login])
+    @user = User.find_by(username: params[:user][:login])
+    unless @user || !@user_attribs
+      @new_user = User.new({uid: @user_attribs.id,
+                            name: @user_attribs.name,
+                            email: @user_attribs.email,
+                            username: @user_attribs.login
+                            })
+      if @new_user.save
+        board.find_by(repository_id: params[:user][:repository_id])
+      end
+    end
+  end
+
   def update
     @user = User.find(current_user.id)
     if @user.update(user_params)

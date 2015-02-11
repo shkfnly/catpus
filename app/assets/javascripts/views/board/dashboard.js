@@ -8,6 +8,10 @@ Catpus.Views.Dashboard = Backbone.CompositeView.extend({
   template: JST['boards/index'],
   className: 'board-display',
 
+  events: {
+    'click #board-title' : 'formClear'
+  },
+
   initialize: function(){
     this.collection = this.model.boards();
     this.issues = this.model.issues();
@@ -17,6 +21,11 @@ Catpus.Views.Dashboard = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'add', this.addBoard);
     this.listenTo(this.issues, 'add', this.addIssue);
     this.initializePusher();
+  },
+
+  formClear: function(event){
+    $(event.target).val('');
+    $('textarea').html('');
   },
 
   render: function(){
