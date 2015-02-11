@@ -17,17 +17,19 @@ class UsersController < ApplicationController
 
   def create
     @user_attribs = current_client.user(params[:user][:login])
+    render json: {} unless @user_attribs
     @user = User.find_by(username: params[:user][:login])
-    unless @user || !@user_attribs
-      @new_user = User.new({uid: @user_attribs.id,
+    unless @user
+      @user = User.create({uid: @user_attribs.id,
                             name: @user_attribs.name,
                             email: @user_attribs.email,
                             username: @user_attribs.login
                             })
-      if @new_user.save
-        board.find_by(repository_id: params[:user][:repository_id])
-      end
     end
+    board = Board.find_by(repository_id: params[:user][:repository_id])
+    BoardMembership.create({user_id: @user.id, board_id: board.id})
+    current_client.add_collab(params[:user][:repository_name], @user.username)
+    render json: @user
   end
 
   def update
