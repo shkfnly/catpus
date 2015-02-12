@@ -3,3 +3,33 @@ header {
     margin: 0;
   }
 }
+
+.icon-link {
+  link-decoration: none;
+}
+.navbar-header {
+  height: 45px;
+}
+
+.nav-li {
+  a{
+    padding: 0 !important;
+  }
+}
+
+.nav-li {
+  padding: 0 !important;
+}
+
+#catpus-icon {
+
+  margin-top: 3px;
+  padding-left: 10px;
+  color: #E8E8E8;
+}
+
+nav.navbar.navbar-default {
+  background-image: -webkit-linear-gradient(top, #282828, #000000);
+  border-radius: 0px;
+
+}

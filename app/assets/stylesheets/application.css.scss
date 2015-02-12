@@ -18,45 +18,36 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Header
+
+
+// Contributer Icons
+
+
+
+
+.thumbnail {
+  height: 40px;
+  width: 40px;
+  margin: 0;
+  display: inline;
+  padding: 0;
+}
 
 ul {
   list-style: none;
+  padding-left: 0;
 }
 
-.list-window {
-  position: absolute;
-  bottom: 0;
-  top: 100px;
-  left: 0;
-  right: 0;
-  width: 75%;
-  white-space: nowrap;
-  overflow-x: auto;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  overflow-y: hidden;
-  > div * {
-    white-space: normal;
-  }
-  &::-webkit-scrollbar {
-    border-radius: 12px;
-    height: 12px;
-    width: 12px;
-  }
+.sidebar-window {
+  width: 20%;
+  display: inline;
+  float: right;
+}
 
-  &::-webkit-scrollbar-button {
-    display: block;
-    width: 5px;
-    height: 5px;
-  }
-  &::-webkit-scrollbar-track-piece {
-    background: rgba(0,0,0,.15);
-    border-radius: 12px;
-  }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(255,255,255,.4);
-    border-radius: 12px;
-  }
+
+.event-index {
+  height: 400px;
+  overflow: auto;
 }

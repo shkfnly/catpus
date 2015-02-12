@@ -1,3 +1,22 @@
 // Place all the styles related to the api/contributer controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.contrib-icon{
+  height: 40px;
+  width: 40px;
+  display: inline;
+  margin: 0;
+}
+
+.contrib-index{
+  padding-left: 0;
+  max-height: 240px;
+  overflow: auto;
+}
+
+.collab-index{
+  max-height: 240px;
+  overflow: auto;
+}

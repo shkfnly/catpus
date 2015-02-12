@@ -3,12 +3,11 @@
   <div><h5>Updated: <em><span><%= moment(board.get('pushed_at')).fromNow() %></span></h5></em></div>
 </div>
 
-<div class='container-fluid canvas'>
     <div class='list-window'>
       <div class='list-index'></div>
       <div class='list-form'></div> 
     </div>
-    <div class='col-md-3 col-md-offset-9'>
+    <div class='sidebar-window'>
       <h3 class='issue-title'>Issues <button class='issue-button'><span style='size: 10px;' class='add-issue glyphicon glyphicon-plus'></button></span></h3>
       <ul class='issue-index'></ul>
       <h3>Collaborators <button class='collab-button'><span style='size: 10px;' class='add-collab glyphicon glyphicon-plus'></span></button></h3>
@@ -20,4 +19,3 @@
       <div class='member-index'></div>
       <div class='collaborator-index'></div>
     </div>
-</div>
