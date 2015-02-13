@@ -69,4 +69,6 @@ group :production do
   gem 'puma'
   gem 'dalli'
   gem 'memcachier'
+  gem 'redis'
+  gem 'redis-rails'
 end

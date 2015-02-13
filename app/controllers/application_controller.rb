@@ -79,14 +79,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def faraday_stack
-  #   return @stack unless @stack.nil?
-  #   store = ActiveSupport::Cache.lookup_store(:mem_cache_store, ['localhost:11211'])
-  #   stack = Faraday::RackBuilder.new do |builder|
-  #     builder.use Faraday::HttpCache, store: Rails.cache
-  #     builder.use Octokit::Response::RaiseError
-  #     builder.adapter Faraday.default_adapter
-  #   end
-  #   Octokit.middleware = stack
-  # end
+  def faraday_stack
+    return @stack unless @stack.nil?
+    store = ActiveSupport::Cache.lookup_store(:mem_cache_store, ['localhost:11211'])
+    stack = Faraday::RackBuilder.new do |builder|
+      builder.use Faraday::HttpCache, store: Rails.cache
+      builder.use Octokit::Response::RaiseError
+      builder.adapter Faraday.default_adapter
+    end
+    Octokit.middleware = stack
+  end
 end
