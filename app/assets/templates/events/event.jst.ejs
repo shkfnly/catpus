@@ -1,4 +1,6 @@
-<p><%= vent.get('type') %></p>
-<p><span><img class='thumbnail' src=<%= vent.get('actor_gravatar') %> /> </span><%= vent.get('actor') %></p>
-<p><%= vent.get('message') %> </p>
-<em><p><%= moment(vent.get('created_at')).fromNow() %> </p></em>
+<div class='event-item well well-material-green-300'>
+  <h3><%= vent.get('type') %></h3>
+  <p><span><img class='thumbnail' src=<%= vent.get('actor_gravatar') %> /> <strong></span><%= vent.get('actor') %></strong></p>
+  <p><%= vent.get('message') %> </p>
+  <em><p><%= moment(vent.get('created_at')).fromNow() %> </p></em>
+</div>

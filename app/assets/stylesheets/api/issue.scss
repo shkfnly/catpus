@@ -3,22 +3,55 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.issues {
+.sidebar-section {
   margin-left: 20px;
   margin-top: 20px;
-  width: 35px;
+  margin-right: 20px;
   display:inline-block;
 }
 
-.issue-header {
-  width: 110px;
+.sidebar-header {
+  width: 200px;
 }
-.issue-title-text{
+.sidebar-title-text{
   margin: 0;
   display: inline;
   margin-right: 5px;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
 }
-.add-issue {
-  display: inline;
-  float: right;
+
+.issue-button {
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  color: #F8F8F8;
+  margin-top: -5px;
+}
+
+
+.collab-button {
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  color: #F8F8F8;
+  margin-top: -5px;
+  padding-top: -5px !important;
+}
+
+.collab-index {
+  margin: 15px auto;
+}
+
+.contrib-index {
+  margin: 15px auto;
+}
+
+.event-index {
+  margin: 15px auto;
+  min-width: 15vw;
 }

@@ -1,7 +1,7 @@
 
 <div class='container-fluid'>
 <div class='list-window'>
-  <div class'board-show-header'>
+  <div class='board-show-header well'>
     <div><h4><%= board.escape('title') %> - <span><%= board.escape('repository_name') %></span> <span class='edit-board glyphicon glyphicon-pencil'></h4></div>
     <div><h5>Updated: <em><span><%= moment(board.get('pushed_at')).fromNow() %></span></h5></em></div>
   </div>
@@ -9,19 +9,25 @@
   <div class='list-form'></div> 
 </div>
 <div class='sidebar-window'>
-  <div class='issues'>
-    <div class='issue-header'>
-      <h3 class='issue-title-text'>Issues</h3><button class='issue-button'><span class='add-issue glyphicon glyphicon-plus'></button></span>
-      <ul class='issue-index'></ul>
-    </div>
+  <div class='sidebar-section'>
+    <div class='sidebar-header'>
+      <h3 class='sidebar-title-text'>Issues</h3><button class='issue-button'><span class='add-issue glyphicon glyphicon-plus'></span></button>
+    </div>  
+    <ul class='issue-index'></ul>
   </div>
-  <h3>Collaborators</h3><button class='collab-button'><span class='add-collab glyphicon glyphicon-plus'></span></button>
-  <div class='collab-index'></div>
-  <h3>Contributers</h3>
-  <div class='contrib-index'></div>
-  <h3>Events</h3>
-  <ul class='event-index'></ul>
-  <div class='member-index'></div>
-  <div class='collaborator-index'></div>
+  <div class='sidebar-section'>
+    <div class='sidebar-header'>
+      <h3 class='sidebar-title-text'>Collaborators</h3><button class='collab-button'><span class='add-collab glyphicon glyphicon-plus'></span></button>
+    </div>  
+      <div class='collab-index'></div>
+  </div>
+  <div class="sidebar-section">
+    <h3 class="sidebar-title-text">Contributers</h3>
+    <div class='contrib-index'></div>
+  </div>
+  <div class="sidebar-section">
+    <h3 class="sidebar-title-text">Events</h3>
+    <ul class='event-index'></ul>
+  </div>
 </div>
 </div>

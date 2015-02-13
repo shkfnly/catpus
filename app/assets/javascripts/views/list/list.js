@@ -6,14 +6,15 @@ Catpus.Views.List = Backbone.CompositeView.extend({
   },
 
   template: JST['lists/list'],
-  className: 'list-display',
+  className: 'list-display well well-material-blue-grey-200',
 
   events: {
     'click .delete-list' : 'deleteList',
     'click .edit-list' : 'renderEditList',
     'sortreceive' : 'receiveCard',
     'sortremove' : 'removeCard',
-    'sortstop' : 'saveCards'
+    'sortstop' : 'saveCards',
+    'click .list-title' : 'editDelete'
   },
 
   initialize: function(){
@@ -99,6 +100,16 @@ Catpus.Views.List = Backbone.CompositeView.extend({
     event.preventDefault();
     var view = new Catpus.Views.ListEditForm({model: this.model})
     $(event.target.parentElement).html(view.render().$el)
+  },
+
+  editDelete: function(event){
+    if ($(event.target).data('clicked') === true){
+      $(event.target).html(this.model.escape('title'));
+      $(event.target).data('clicked', false );
+    } else{
+      $(event.target).append("<span class='edit-list glyphicon glyphicon-pencil'></span><span class='delete-list glyphicon glyphicon-remove-sign'></span>")
+      $(event.target).data('clicked', true)
+    }
   }
 });
 

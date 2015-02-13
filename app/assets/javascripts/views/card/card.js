@@ -1,6 +1,6 @@
 Catpus.Views.Card = Backbone.CompositeView.extend({
   template: JST['cards/card'],
-  className: 'card card-display',
+  className: 'card-display well well-material-blue-grey-050',
 
   initialize: function(){
     this.collection = this.model.tasks();

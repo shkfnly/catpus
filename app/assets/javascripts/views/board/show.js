@@ -133,5 +133,7 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     }.bind(this));
   }
 });
-
+$('.list-title').on('mouseEnter', function(){
+  alert('working');
+});
 _.extend(Catpus.Views.BoardShow.prototype, Catpus.Utils.OrdView);
