@@ -19,7 +19,9 @@ Catpus.Views.Card = Backbone.CompositeView.extend({
   events: {
     'click .delete-card' : 'deleteCard',
     'click .edit-card' : 'renderEditCard',
-    'click' : 'renderModal'
+    'click' : 'renderModal',
+    'mouseenter .card-title' : 'editDelete',
+    'mouseleave .card-title' : 'editDelete'
   },
 
   attributes: function() {
@@ -58,4 +60,15 @@ Catpus.Views.Card = Backbone.CompositeView.extend({
     // $('body').prepend(this.modalView.render().$el);
     // this.modalView.delegateEvents();
   },
+
+    editDelete: function(event){
+    event.stopPropagation();
+    if ($(event.target).data('clicked') === true){
+      $(event.target).html(this.model.escape('title'));
+      $(event.target).data('clicked', false );
+    } else{
+      $(event.target).append("<span class='edit-list glyphicon glyphicon-pencil'></span><span class='delete-list glyphicon glyphicon-remove-sign'></span>")
+      $(event.target).data('clicked', true)
+    }
+  }
 });

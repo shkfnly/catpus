@@ -14,7 +14,9 @@ Catpus.Views.List = Backbone.CompositeView.extend({
     'sortreceive' : 'receiveCard',
     'sortremove' : 'removeCard',
     'sortstop' : 'saveCards',
-    'click .list-title' : 'editDelete'
+    'mouseenter .list-title' : 'editDelete',
+    'mouseleave .list-title' : 'editDelete'
+
   },
 
   initialize: function(){
@@ -103,6 +105,7 @@ Catpus.Views.List = Backbone.CompositeView.extend({
   },
 
   editDelete: function(event){
+    event.stopPropagation();
     if ($(event.target).data('clicked') === true){
       $(event.target).html(this.model.escape('title'));
       $(event.target).data('clicked', false );
@@ -110,7 +113,8 @@ Catpus.Views.List = Backbone.CompositeView.extend({
       $(event.target).append("<span class='edit-list glyphicon glyphicon-pencil'></span><span class='delete-list glyphicon glyphicon-remove-sign'></span>")
       $(event.target).data('clicked', true)
     }
-  }
+  },
+
 });
 
 _.extend(Catpus.Views.List.prototype, Catpus.Utils.OrdView);

@@ -13,7 +13,9 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
     'sortstop' : 'saveOrds',
     'click .edit-board' : 'renderEditBoard',
     'click .issue-button' : 'renderIssueForm',
-    'click .collab-button' : 'renderCollabForm'
+    'click .collab-button' : 'renderCollabForm',
+    'mouseenter .board-show-title' : 'editDelete',
+    'mouseleave .board-show-title' : 'editDelete'
   },
 
   initialize: function(){
@@ -131,9 +133,18 @@ Catpus.Views.BoardShow = Backbone.CompositeView.extend({
       this.model.fetch();
       this.collection.fetch({data: {board_id: this.model.id}});
     }.bind(this));
-  }
+  },
+
+  editDelete: function(event){
+    event.stopPropagation();
+    if ($(event.target).data('clicked') === true){
+      $(event.target).html(this.model.escape('title') + " - <span>" + this.model.escape('repository_name') + "</span>");
+      $(event.target).data('clicked', false );
+    } else{
+      $(event.target).append("<span class='edit-list glyphicon glyphicon-pencil'></span>")
+      $(event.target).data('clicked', true)
+    }
+  },
 });
-$('.list-title').on('mouseEnter', function(){
-  alert('working');
-});
+
 _.extend(Catpus.Views.BoardShow.prototype, Catpus.Utils.OrdView);
