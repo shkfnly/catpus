@@ -1,3 +1,44 @@
-// Place all the styles related to the api/board controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.board-index {
+  margin-left: 45px !important;
+  min-height: 75px;
+}
+
+.contrib-board-index {
+  margin-left: 45px !important;
+  min-height: 75px;
+}
+
+.board-item {
+  margin: 0;
+  padding: 0 !important;
+  margin-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 6px !important;
+}
+
+.board-item-title {
+  color: white;
+  padding-left: 5px;
+  padding-top: 3px;
+  margin-bottom: 3px;
+  margin-top: 0;
+}
+#dashboard-canvas > div.row.board-index > div > div {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.board-title > div {
+  color: #F8F8F8;
+  padding-left: 10px;
+
+}
+.time {
+  font-style: italic;
+}
+
+.board-repo-name {
+  font-style: italic;
+}

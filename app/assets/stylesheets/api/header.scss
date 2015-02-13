@@ -1,35 +1,83 @@
-header {
-  a {
-    margin: 0;
-  }
-}
 
-.icon-link {
+.navbar-brand {
   link-decoration: none;
 }
 .navbar-header {
   height: 45px;
 }
 
-.nav-li {
-  a{
-    padding: 0 !important;
-  }
+body > header > nav > div > ul > a {
+  margin-top: 7px;
+  margin-right: 10px;
 }
 
 .nav-li {
-  padding: 0 !important;
+    margin-top: 10px;
+    margin-right: 15px;
+    padding-rigth: 10px;
+    height: 30px;
+    a{
+      padding: 0px !important;
+      padding-top: 4px !important;
+      color: #F0F0F0 !important;
+    }
+    input{
+      padding-top: 3px !important;
+    }
 }
 
+
+#user-name-img {
+}
+#username {
+
+  color: #F0F0F0;
+}
+
+.thumbnail-header {
+  height: 30px;
+  width: 30px;
+  display: inline;
+  margin-right: 12px;
+}
 #catpus-icon {
-
-  margin-top: 3px;
-  padding-left: 10px;
   color: #E8E8E8;
+  display: inline !important;
+  font-family: "Montserrat", sans-serif;
+  padding-left: 3px;
 }
 
 nav.navbar.navbar-default {
+  border: 0;
+  margin: 0;
   background-image: -webkit-linear-gradient(top, #282828, #000000);
   border-radius: 0px;
+  box-shadow: 1px 2px 1px #888888;
 
+}
+
+.head-ico {
+  height: 40px;
+  width: 40px;
+  float: left;
+  margin: 0;
+
+}
+
+body > header > nav > div > ul > li:nth-child(3) > form > input[type="submit"]:nth-child(2) {
+  color: #000;
+}
+
+.navbar-header {
+  margin-left: 15px !important;
+}
+
+.navbar-brand {
+  padding-left: 15px !important;
+  padding-top: 5px !important;
+  width: 300px;
+}
+.navbar-right {
+  margin-right: 10px;
+  padding-right: 15px;
 }

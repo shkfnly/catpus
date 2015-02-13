@@ -18,21 +18,23 @@
   margin: 0 5px;
   max-height: 100%;
 
+
 }
 
+
 .list-window {
-  position: absolute;
-  display: inline;
+  float: left;
+  width: 80%;
   bottom: 0;
-  top: 150px;
   left: 0;
   right: 0;
-  width: 80%;
   white-space: nowrap;
-  overflow-x: auto;
+  overflow-x: scroll;
   padding-left: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
   overflow-y: hidden;
-  
+  background-image: -webkit-linear-gradient(top, #E8E8E8, #F8F8F8);
+  height: 90vh;
+
 }

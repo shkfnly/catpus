@@ -10,15 +10,57 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";  
+@import "bootstrap-social";
+
+.issues-list {
+  background-image: url(" octocat.png");
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 85vh;
+  overflow: scroll;
+}
 
 // Header
+
+#landing {
+  padding-top: 250px;
+  background-image: url("officeimg.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 85vh;
+}
+
+#landing > a {
+  width: 185px;
+  margin: 30px auto;
+}
+
+.landing-title {
+  text-align: center;
+  margin-top: 150px;
+}
+#main {
+  margin-top: 45px;
+  margin-bottom: 45px;
+  min-height: 90vh;
+
+}
+
+#footer {
+  min-height: 45px;
+  background-color: #000;
+  margin-top: -45px;
+}
+
 
 
 // Contributer Icons
@@ -33,7 +75,10 @@
   display: inline;
   padding: 0;
 }
-
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 ul {
   list-style: none;
   padding-left: 0;
@@ -41,13 +86,41 @@ ul {
 
 .sidebar-window {
   width: 20%;
-  display: inline;
   float: right;
 }
 
-
-
 .event-index {
-  height: 400px;
+  height: 25vh;
   overflow: auto;
+}
+
+.title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: #F8F8F8;
+}
+
+#landing > section {
+  color: #F8F8F8;
+}
+
+.homepage-section {
+  display: inline;
+  text-align: center;
+}
+
+
+//Footer
+
+#footer > footer > nav > a {
+  display: inline;
+  text-align: right;
+}
+#footer > footer > ul > li {
+  margin-top: 7px;
+}
+
+#footer > footer > ul > li > a {
+  padding-top: 0 !important;
 }

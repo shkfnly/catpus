@@ -1,7 +1,6 @@
 Catpus.Views.BoardForm = Backbone.View.extend({
   template: JST['boards/form'],
   tagName: 'form',
-  className: 'board-form',
   events: {
     'submit': 'submit',
     'click #board-title' : 'formClear'
