@@ -21,7 +21,7 @@
 @import "bootstrap-social";
 
 .issues-list {
-  background-image: url("../images/octocat.png");
+  background-image: asset_path("octocat.png");
   background-size: 200px 200px;
   background-repeat: no-repeat;
   background-position: center;
