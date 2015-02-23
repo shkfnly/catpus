@@ -1,6 +1,7 @@
 Catpus.Views.Issue = Backbone.View.extend({
   template: JST['issues/item'],
   tagName: 'li',
+  className: 'well well-material-red-400',
   events: {
     'click .close-issue' : 'closeIssue'
   },

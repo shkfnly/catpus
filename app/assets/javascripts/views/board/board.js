@@ -1,6 +1,6 @@
 Catpus.Views.Board = Backbone.View.extend({
   template: JST['boards/item'],
-  className: 'board-item col-md-3',
+  className: 'board-item col-md-3 well well-material-blue-grey-500',
 
   events: {
     'click' : 'handleClick',

@@ -1,6 +1,3 @@
-
-<div class='board-item well well-material-blue-grey-500'>
-  <h4 class='board-item-title'><%= board.escape('title') %></h4>
-  <div>Repository: <span class='board-repo-name'><%= board.escape('repository_name') %></span></div>
-  <div><span class='board-item-update'>Updated: </span><span class='time'><%= moment(board.get('pushed_at')).fromNow() %></span></div>
-</div>
+<h4 class='board-item-title'><%= board.escape('title') %></h4>
+<div>Repository: <span class='board-repo-name'><%= board.escape('repository_name') %></span></div>
+<div><span class='board-item-update'>Updated: </span><span class='time'><%= moment(board.get('pushed_at')).fromNow() %></span></div>
