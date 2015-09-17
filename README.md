@@ -1,4 +1,4 @@
-# catpus
+# Tentacle.io
 [Heroku](https://tentacleio.herokuapp.com/)
 
 ![Landing Page](screenshots/landing_screen.png)
