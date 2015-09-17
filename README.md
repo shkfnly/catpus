@@ -1,5 +1,5 @@
 # catpus
-[Heroku](http://catpus.herokuapp.com/)
+[Heroku](https://tentacleio.herokuapp.com/)
 
 #Minimum Viable Product
 
