@@ -1,6 +1,9 @@
 # catpus
 [Heroku](https://tentacleio.herokuapp.com/)
 
+![Landing Page](screenshots/landing_screen.png)
+![Dashboard](screenshots/logged_in_screen.png)
+
 #Minimum Viable Product
 
 Catpus is a clone of Trello, but incorporating Github integration with some basic visualizations. It allows for people to create ToDo lists for repositories they own, and then be able to check off the tasks using the proper git commit message. Users can:
